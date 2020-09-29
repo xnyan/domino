@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+package dynamic;
+
+service DynamicPaxos {
+  // Multi-Paxos for clients
+  rpc PaxosPropose(PaxosProposeReq) returns (PaxosProposeReply) {}
+
+  // Fast Paxos for clients
+  rpc FpPropose(FpProposeReq) returns (stream FpProposeReply) {}
+  
+
+
+  // Communication between replicas
+  // Heart beat
+  // Paxos Accept & Commit
+  // Fast Paxos Vote
+  // Fast Paxos Accept & Commit
+  // Any above message should piggyback a commit timestamp message for the shard.
+  // This commit timestamp indicates that the replica guarantees that it will
+  // not accept/commit any operation before the timestamp
+  rpc DeliverReplicaMsg(stream ReplicaMsg) returns (EmptyReply) {} 
+  
+  //// Network Latency Monitoring 
+  // For clients
+  rpc Probe(ProbeReq) returns (ProbeReply){}
+  rpc ProbeTime(ProbeReq) returns (ProbeTimeReply){}
+  // For replica servers
+  rpc ReplicaProbe(ProbeReq) returns (ReplicaProbeReply) {}
+
+  // Testing
+  rpc Test(TestReq) returns (TestReply){}
+}
+
+message Command {
+  string id = 1;
+  string type = 2; // "w": write; "r": read
+  string key = 3;
+  string val = 4;
+}
+
+message Timestamp {
+  int64 time = 1;
+  int32 shard = 2; // Multi-Paxos or Fp shard number
+}
+
+message PaxosProposeReq {
+  Command cmd = 1;
+}
+
+message PaxosProposeReply {
+  bool isCommit = 1;
+  string execRet = 2; // execution result
+  string cmdId = 3; // For fast io
+}
+
+message FpProposeReq {
+  Command cmd = 1;
+  Timestamp time = 2;
+  bool isExecReply = 3; // True for the replica that should return exec result
+}
+
+message FpProposeReply {
+  bool isAccept = 1;
+  bool isFast = 2; // true if this is a fast-path reply
+  string execRet = 3;
+  string cmdId = 4; // For fast io
+}
+
+message ProbeReq{
+}
+
+message ProbeReply {
+  int64 queuingDelay = 1; //in ns
+  int32 paxosLat = 2; //in ms
+}
+
+message ProbeTimeReply {
+  int64 processTime = 1; // in ns
+  int32 paxosLat = 2; //in ms
+}
+
+message ReplicaProbeReply {
+  int64 queuingDelay = 1;
+}
+
+message ReplicaMsg {
+  int32 type = 1; 
+  Command cmd = 2; 
+  Timestamp time = 3; 
+  bool isAccept = 4; 
+  int64 nonAcceptT = 5; // Paxos / Fast Paxos non accept time on the sender
+  string replicaId = 6; // The sender replica Id
+  Timestamp fpExecT = 7;
+}
+
+message EmptyReply {
+}
+
+message TestReq {
+}
+
+message TestReply {
+}

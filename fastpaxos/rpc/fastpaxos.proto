@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package rpc;
+
+service FastPaxosRpc {
+  // RPCs for clients to propose a request
+  rpc Propose(ProposeRequest) returns (stream ProposeReply) {}
+  rpc StreamPropose(stream ProposeRequest) returns (stream ProposeReply) {}
+
+  // RPCs for followers to notify the leader about its accepted requests
+  rpc Promise(PromiseRequest) returns (PromiseReply) {}
+  //rpc StreamPromise(stream PromiseRequest) returns (stream PromiseReply) {}
+  
+  // RPCs for a leader to notify followers to accept a request (for solving conflicts)
+  rpc Accept(AcceptRequest) returns (AcceptReply) {}
+  //rpc StreamAccept(stream AcceptRequest) returns (stream AcceptReply) {}
+
+  // RPCs for the leaders to notify followers to commit requests in the log
+  rpc Commit(CommitRequest) returns (CommitReply) {}
+  //rpc StreamCommit(stream CommitRequest) returns (stream CommitReply) {}
+ 
+  // RPCs for testing 
+  rpc Test(TestRequest) returns (TestReply) {}
+}
+
+message Operation {
+  string id = 1;
+  string type = 2; // r: read; w: write
+  string key = 3;
+  string val = 4;
+}
+
+message ProposeRequest {
+  Operation op = 1;
+  int64 delay = 2;
+  int64 timestamp = 3;
+  string clientId = 4;
+}
+
+message ProposeReply {
+  string opId = 1;
+  string idx = 2;
+  bool isSlow = 3; // true if this is a slow path result
+}
+
+message PromiseRequest {
+  string idx = 1;
+  Operation op = 2;
+}
+
+message PromiseReply {
+}
+
+message AcceptRequest {
+  string idx = 1;
+  Operation op = 2;
+}
+
+message AcceptReply {
+}
+
+message CommitRequest {
+  string idx = 1;
+  Operation op = 2;
+}
+
+message CommitReply {
+}
+
+message TestRequest {
+}
+
+message TestReply {
+}
