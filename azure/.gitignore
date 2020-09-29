@@ -1,0 +1,5 @@
+*.pub
+*.txt
+*.ip
+*.ip.private
+*.ip.public
