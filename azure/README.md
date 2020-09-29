@@ -56,8 +56,8 @@ data are copied out before removing storage resources.
 
 # Experimental Settings for Domino
 
-The exp folder contains the cluster creating settings and scripts for the
-experiments for the Domino paper.
+The exp folder contains the cluster settings and scripts for the experiments
+for the Domino paper.
 
 For example, the following commands will create a cluster with 9 datacenters and 3 replicas in North America.
 
