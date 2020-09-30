@@ -21,6 +21,10 @@ This repo consists a prototype of Domino and an implementation of SMR using Fast
 
 /benchmark is the source code of benchmark clients.
 
+/azure has scripts of using Azure CLI to create a clueter on Azure.
+
+/exp-azure has the scripts to repeat the experiments on Azure in the Domino paper.
+
 ## Experiments on Azure
 
 Please refer to the README file under $GOPATH/src/domino/exp-azure to run experiments on Azure.
