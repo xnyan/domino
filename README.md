@@ -1,5 +1,7 @@
 ## Requirements
 
+Operating Systems: Ubuntu 12.04+
+
 Install Go 1.14+
 
 Set up $GOPATH
