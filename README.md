@@ -2,9 +2,9 @@
 
 Operating Systems: Linux Ubuntu
 
-Install Go 1.14+
+Install GO 1.14+
 
-Set up $GOROOT and $GOPATH following the Go language installation
+Set up $GOROOT and $GOPATH following the GO installation
 
 Set up $PATH to include $GORROT/bin and $GOPATH/bin as follows:
 
@@ -39,7 +39,7 @@ This repo has a prototype of Domino and an implementation of Fast Paxos without 
 
 ## Quick Start
 
-Follow [the README file under /exp-test](https://github.com/xnyan/domino/tree/master/exp-test) to run differet protocols locally for testing the installation.
+Follow [the README file under /exp-test](https://github.com/xnyan/domino/tree/master/exp-test) to run differet protocols locally to test the installation.
 
 ## Data Traces for Inter-Region Latency on Azure
 
