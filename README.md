@@ -1,6 +1,6 @@
 ## Requirements
 
-Operating Systems: Linux Ubuntu
+Operating System: Linux Ubuntu
 
 Install GO 1.14+
 
