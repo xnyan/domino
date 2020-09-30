@@ -1,6 +1,6 @@
 ## Requirements
 
-Install Go 1.14
+Install Go 1.14+
 
 Set up $GOPATH
 
