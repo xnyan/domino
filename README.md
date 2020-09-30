@@ -43,7 +43,7 @@ Follow [the README file under /exp-test](https://github.com/xnyan/domino/tree/ma
 
 ## Experiments on Azure
 
-Refer to the README file under /exp-azure to run experiments on Azure, which also shows how to build the binaries.
+Refer to [the README file under /exp-azure](https://github.com/xnyan/domino/tree/master/exp-azure) to run the experiments on Azure in the Domino paper.
 
 ## Data Traces for Inter-Region Latency on Azure
 
@@ -57,5 +57,5 @@ NA setting data trace:
 
 curl -JLO https://rgw.cs.uwaterloo.ca/BERNARD-domino/trace-azure-na-9dc-24h-202005071450-202005081450.tar.gz
 
-The data traces are byte files. Use the parser at [here] to parse the data traces, where there are aslo scripts to generate the figures for the inter-region latency in the Domino paper.
+The data traces are byte files. Follow [the README file in /trace/azure/fig] (https://github.com/xnyan/domino/tree/master/trace/azure/fig) to parse the files and generate the figures about the inter-region latency measurments in the Domino paper.
 
