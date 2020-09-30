@@ -23,7 +23,7 @@ This repo has a prototype of Domino and an implementation of Fast Paxos without 
 
 /exp-test has the scripts for quick start and testing the intallation.
 
-/dynamic is the source code of Domino. Dynamic is an alias name of Domino in the repo because of historic reasons. TODO: rename dynamic to domino.
+/dynamic is the source code of Domino. Dynamic is currently an alias name of Domino in the repo.
 
 /fastpaxos is the source code of Fast Paxos.
 
