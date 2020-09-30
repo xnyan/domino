@@ -12,5 +12,5 @@ For example, the root directory of this repo is $GOPATH/src/domino
  
 ## Experiments on Azure
 
-Please refer to the README file under $GOPATH/src/domino to run experiments on Azure.
+Please refer to the README file under $GOPATH/src/domino/exp-azure to run experiments on Azure.
 
