@@ -13,7 +13,7 @@ clone this repo to $GOPATH/src/
 For example, the root directory of this repo is $GOPATH/src/domino
 
 ## Source Code
-This repo has a prototype of Domino and an implementation of SMR using Fast Paxos. It also contains implementations of EPaxos, Mencius, and Multi-Paxos, which are imported from https://github.com/efficient/epaxos
+This repo has a prototype of Domino and an implementation of Fast Paxos without fault tolerance. The repo also contains the implementations of EPaxos, Mencius, and Multi-Paxos, which are imported from https://github.com/efficient/epaxos
 
 /dynamic is the source code of Domino. Dynamic is an alias name of Domino in the repo because of historic reasons. TODO: rename dynamic to domino.
 
@@ -29,5 +29,5 @@ This repo has a prototype of Domino and an implementation of SMR using Fast Paxo
 
 ## Experiments on Azure
 
-Please refer to the README file under /exp-azure to run experiments on Azure.
+Please refer to the README file under /exp-azure to run experiments on Azure, which also shows how to build the binaries.
 
