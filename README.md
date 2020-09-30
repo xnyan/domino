@@ -31,3 +31,17 @@ This repo has a prototype of Domino and an implementation of Fast Paxos without 
 
 Please refer to the README file under /exp-azure to run experiments on Azure, which also shows how to build the binaries.
 
+## Data Traces for Inter-Region Latency on Azure
+
+Use the following two commands to download the data traces for the Globe setting (6 datacenters that are globally distributed) and the NA setting (9 datacenters that are located in North America).
+
+Globe setting data trace:
+
+curl -JLO https://rgw.cs.uwaterloo.ca/BERNARD-domino/trace-azure-globe-6dc-24h-202005170045-202005180045.tar.gz
+
+NA setting data trace:
+
+curl -JLO https://rgw.cs.uwaterloo.ca/BERNARD-domino/trace-azure-na-9dc-24h-202005071450-202005081450.tar.gz
+
+The data traces are byte files. Use the parser at [here] to parse the data traces, where there are aslo scripts to generate the figures for the inter-region latency in the Domino paper.
+
