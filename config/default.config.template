@@ -1,0 +1,131 @@
+##Dynamic Paxos
+dynamic.fp.predict.timeoffset = true
+dynamic.fp.predict.all = true
+dynamic.lat.predict.percentile = 0.95
+dynamic.lat.probe.interval = 10ms 
+dynamic.lat.probe.window.length = 1s
+dynamic.lat.probe.window.min.size = 10
+dynamic.client.add.delay = 0ms
+dynamic.lat.replica.probe.interval = 10ms
+dynamic.lat.replica.probe.window.length = 1s
+dynamic.lat.replica.probe.window.min.size = 10
+#unit: ns
+dynamic.heartbeat.interval = 10ms
+dynamic.exec = true
+dynamic.exec.reply = false
+dynamic.exec.log = false
+dynamic.cmd.ch.size = 1048576
+dynamic.exec.ch.size = 10485760
+dynamic.fp.leader.use.paxos = true
+dynamic.fp.leader.solelearner = true
+dynamic.paxos.future.time = false
+dynamic.grpc = true
+dynamic.sync.send = false
+dynamic.kv.log.dir = ./
+dynamic.client.fp.load = -1
+
+######Data configurations########
+data.key.file = ./key.dat
+data.val.size = 8
+
+######Epaxos######
+##true for Mencius to return commit ack once replication is done
+mencius.early_commit_ack = false
+##protocol to use e: epaxos, m: mencius, g: gpaxos, p: multi-paxos
+epaxos.protocol = e
+##Execute commands.
+epaxos.exec = true
+##Reply to client only after command has been executed.
+epaxos.dreply = false
+##Send beacons to other replicas to compare their relative speeds.
+epaxos.beacon = true
+##Log to a stable store (i.e., a file in the current dir).
+epaxos.durable = false
+##Use only as many messages as strictly required for inter-replica communication.
+epaxos.thrifty = true
+##Write cpu profile to file
+#epaxos.cpuprofile
+
+################
+#do: DoFastPaxos ##  Deprecated
+#h: hybrid paxos client ## Deprecated
+#d: dynamic Paxos
+#e: epaxos client
+#m: mencius client
+#g: gpaxos client
+#p: paxos client
+benchmark.client = d
+
+##Benchmark Configurations
+
+##Execution duration. Default is 10 seconds.
+benchmark.duration = 10s
+
+##Total number of transactions to execute if duration is not positive. Default is 1000
+benchmark.txn.total = 1000
+
+##Target number of transactons sent per second by a client. 
+##If the target number is 0 or negative, a client will execute transactions one by one.
+##Default is 0.
+##A client will only try its best to achieve this target.
+##For now, do not retry transactions when the target rate is enabled.
+benchmark.txn.target.rate = 0
+
+##Open loop
+##If the open loop is enabled, a client sends tranactions in the target rate.
+benchmark.openloop = false
+
+##Random seed. 0 for dyanmic. Default is 0.
+benchmark.random.seed = 0
+
+###Configurations about retrying an aborted transaction.
+#
+##The max times of retrying an aborted txn. Default is 0.
+benchmark.txn.retry.max = 0
+
+##The mode of setting a waiting time for retrying a transaction.
+##exp: exponential backoff
+##constant: a fixed waiting time
+##Default is constant
+benchmark.txn.retry.mode = constant
+
+##Time interval between retries. Default is 10 ms.
+##Uses the same interval in the constant mode.
+##The interval will be the waiting-time slot in the exp mode.
+benchmark.txn.retry.interval = 10ms
+
+##The max number of waiting-time slots in the exp mode.
+##Default is 32.
+##Only applicable in the exp mode.
+benchmark.txn.retry.maxslot = 32
+
+###Configurations for workloads
+#
+##Workload types.
+##retwis: Retwis workload
+##ycsbt: YCSB+T workload
+##onetxn: only one transaction having the same read/write sets
+##Default is ycsbt 
+workload.type = ycsbt 
+
+##Zipfian distribution alpha value
+workload.zipf.alpha = 0.75
+
+###Configurations for YCSB+T workload
+##For now, reads and writes will use the same set of keys.
+##This stands for read-modify-write operations.
+##Default read and write numbers are 1, respectively.
+workload.ycsbt.readnum = 0
+workload.ycsbt.writenum = 1
+
+###Configurations for Retwis workload
+##The percentage of each type of transactions in Retwis. Unit: %
+##Total must be 100%. Default is as follows:
+##Add user 5%
+##Follow and unfollow 15%
+##Post tweet 30%
+##Load timeline 50%
+workload.retwis.adduser.ratio = 5
+workload.retwis.followunfollow.ratio = 15
+workload.retwis.posttweet.ratio = 30
+workload.retwis.loadtimeline.ratio = 50
