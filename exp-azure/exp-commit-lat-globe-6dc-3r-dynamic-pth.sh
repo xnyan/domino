@@ -41,17 +41,25 @@ run_exp() {
 }
 
 # Vary the percentile delay from network measurements for delay prediction
-# No need to run the 95th percentile delay again since it is the default value
-# when comparing Domino with other protocols
+# No need to run the 95th percentile delay with 0ms add delay again since it is
+# the default value when comparing Domino with other protocols
 pth="0.95"
-for pth in 0.99 0.9 0.75 0.5
+for pth in 0.99 0.95 0.9 0.75 0.5
 do
+add_delay="0ms"
+for add_delay in 0ms 1ms 2ms 4ms 8ms 12ms 16ms
+do
+  if [ "$pth" == "0.95" ] && [ "$add_delay" == "0ms" ]; then
+    continue
+  fi
   sed "s/dynamic.lat.predict.percentile = 0.95/dynamic.lat.predict.percentile = ${pth}/g" ${base_config_file} > ${config_file}
+  sed -i "s/client.add.delay = 0ms/client.add.delay = ${add_delay}/g" ${config_file}
   ./deploy.sh ${config_file}
-  p="${base_p}-pth${pth}"
+  p="${base_p}-pth${pth}-add${add_delay}"
   for i in {1..10}
   do
-    echo "`date` Experiment: ${base_p} ${base_config_file} ${pth} $i"
+    echo "`date` Experiment: ${base_p} ${base_config_file} ${pth} ${add_delay} $i"
     run_exp
   done
+done #add_delay
 done #pth
