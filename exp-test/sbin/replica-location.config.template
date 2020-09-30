@@ -1,0 +1,5 @@
+#ServerId, DcId, Private Ip, Port, DM Leader, DFP Coordinator
+#ServerId==1 is the leader of Multi-Paxos
+1 dc1 127.0.0.1 10011 L L
+2 dc2 127.0.0.1 10012 L F
+3 dc3 127.0.0.1 10013 L F

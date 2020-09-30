@@ -1,0 +1,7 @@
+client
+dynamic
+epaxos
+fastpaxos
+
+*.log
+stable-store-replica*
