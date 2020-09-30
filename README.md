@@ -4,13 +4,19 @@ Operating Systems: Ubuntu 12.04+
 
 Install Go 1.14+
 
-Set up $GOPATH
+Set up $GOROOT and $GOPATH following the Go language installation
+
+Set up $PATH to include $GORROT/bin and $GOPATH/bin as follows:
+
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin" 
 
 ## Downlowd
 
-clone this repo to $GOPATH/src/
+Clone this repo $GOPATH/src/ as follows:
 
-For example, the root directory of this repo is $GOPATH/src/domino
+git clone https://github.com/xnyan/domino.git $GOPATH/src/domino
+
+The root directory of this repo will be $GOPATH/src/domino
 
 ## Source Code
 This repo has a prototype of Domino and an implementation of Fast Paxos without fault tolerance. The repo also contains the implementations of EPaxos, Mencius, and Multi-Paxos, which are imported from https://github.com/efficient/epaxos
