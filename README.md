@@ -41,10 +41,6 @@ This repo has a prototype of Domino and an implementation of Fast Paxos without 
 
 Follow [the README file under /exp-test](https://github.com/xnyan/domino/tree/master/exp-test) to run differet protocols locally for testing the installation.
 
-## Experiments on Azure
-
-Refer to [the README file under /exp-azure](https://github.com/xnyan/domino/tree/master/exp-azure) to run the experiments on Azure in the Domino paper.
-
 ## Data Traces for Inter-Region Latency on Azure
 
 Use the following two commands to download the data traces for the Globe setting (6 datacenters that are globally distributed) and the NA setting (9 datacenters that are located in North America).
@@ -59,3 +55,7 @@ curl -JLO https://rgw.cs.uwaterloo.ca/BERNARD-domino/trace-azure-na-9dc-24h-2020
 
 The data traces are byte files. Follow [the README file in /trace/azure/fig](https://github.com/xnyan/domino/tree/master/trace/azure/fig) to parse the files and generate the figures about the inter-region latency measurments in the Domino paper.
 
+
+## Experiments on Azure
+
+Refer to [the README file under /exp-azure](https://github.com/xnyan/domino/tree/master/exp-azure) to run the experiments on Azure in the Domino paper.
