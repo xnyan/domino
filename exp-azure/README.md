@@ -138,7 +138,7 @@ replicas in the Globe setting, there is no need to stop the VMs or detele the
 cluster resources.
 The following steps assume that the experiments will continue to use this Globe setting.
 
-## Impact of the percentile delay and the additional delays
+## Impact of the percentile delay and the additional delays on commit latency
 This experiment examines the impact of the percentile delay in network
 measurements for delay predictions and the additional delays on Domino's commit
 Latency with 6 datacenters and 3 replicas in the Globe setting.
