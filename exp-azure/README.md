@@ -6,7 +6,7 @@ If the building fails due to missing dependencies, use govendor to fetch the dep
 
 After building, there will be 4 binaries as follows:
 
-dynamic: the executbale server for Domino. dynamic is a alias name for Domino in current repo. TODO rename dynamic to domino
+dynamic: the executbale server for Domino. dynamic is an alias name for Domino in current repo. TODO rename dynamic to domino
 
 epaxos: the executable server for EPaxos, Mencius, and Multi-Paxos, which are imported from https://github.com/efficient/epaxos
 
@@ -14,7 +14,7 @@ fastpaxos: the executable server for Fast Paxos.
 
 client: the benchmark client.
 
-# Domino Experiments on Azure
+# Experiments on Azure in the Domino paper.
 
 In this document, $DOMINO represents the path to this repo's root directory.
 
