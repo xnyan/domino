@@ -21,6 +21,8 @@ The root directory of this repo will be $GOPATH/src/domino
 ## Source Code
 This repo has a prototype of Domino and an implementation of Fast Paxos without fault tolerance. The repo also contains the implementations of EPaxos, Mencius, and Multi-Paxos, which are imported from https://github.com/efficient/epaxos
 
+/exp-test has the scripts for quick start and testing the intallation.
+
 /dynamic is the source code of Domino. Dynamic is an alias name of Domino in the repo because of historic reasons. TODO: rename dynamic to domino.
 
 /fastpaxos is the source code of Fast Paxos.
@@ -32,6 +34,8 @@ This repo has a prototype of Domino and an implementation of Fast Paxos without 
 /azure has scripts of using Azure CLI to create a clueter on Azure.
 
 /exp-azure has the scripts to repeat the experiments on Azure in the Domino paper.
+
+/trace has the scripts (/trace/azure/fig) to generate the figures about inter-region latency on Azure in the paper based on the collected data traces. It also has the source code and the scripts (/trace/azure) for collecting the inter-region latency.
 
 ## Experiments on Azure
 
