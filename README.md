@@ -29,5 +29,5 @@ This repo has a prototype of Domino and an implementation of SMR using Fast Paxo
 
 ## Experiments on Azure
 
-Please refer to the README file under $GOPATH/src/domino/exp-azure to run experiments on Azure.
+Please refer to the README file under /exp-azure to run experiments on Azure.
 
