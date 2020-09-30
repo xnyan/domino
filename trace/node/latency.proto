@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package node;
+
+service Latency {
+  rpc Probe(ProbeReq) returns (ProbeReply){}
+}
+
+message ProbeReq{
+}
+
+message ProbeReply {
+  int64 serverClock = 1; //lock time in ns
+}
