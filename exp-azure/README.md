@@ -226,64 +226,89 @@ Under $DOMINO/exp-azure/sbin, there are scripts that can be used to run small
 set of experiments.
 Here is a list of samples about how to use these scripts.
 
-## Build binaries
-build.sh settings.sh
+## Generate location configuration files based Azure VMs' IPs
 
-## Analyze Azure VM's IP into location configuration files
-# Uses the closest replica for each client
-gen-location.py -f azure-vm.ip -l westus2 -d azure-delay.json
-# Uses the replica that achieves the lowest latency for each client
-gen-location.py -f azure-vm.ip -l westus2 -d azure-delay.json -e
+Uses the closest replica for each client:
+
+./gen-location.py -f azure-exp-vm-ip.config -l westus2 -d azure-globe-delay.json
 
 ## Deploy files to servers and clients
+
 ./deploy.sh dynamic epaxos client default.config replica-location.config key.dat
 
 ## Start servers
-# Dynamic
-server.sh settings.sh start dynamic
-# EPaxos without thrifty
-server.sh settings.sh start epaxos e false
-# EPaxos with thrifty
-server.sh settings.sh start epaxos e true
-# Mencius
-server.sh settings.sh start epaxos m false
-# Multi-Paxos
-server.sh settings.sh start epaxos p false
+Domino:
+
+./server.sh settings.sh start dynamic
+
+EPaxos without thrifty:
+
+./server.sh settings.sh start epaxos e false
+
+EPaxos with thrifty:
+
+./server.sh settings.sh start epaxos e true
+
+Mencius:
+
+./server.sh settings.sh start epaxos m false
+
+Multi-Paxos:
+
+./server.sh settings.sh start epaxos p false
 
 ## Stop servers
-# Dynamic
-server.sh settings.sh stop dynamic
-# EPaxos
-server.sh settings.sh stop epaxos
+
+Domino: 
+
+./server.sh settings.sh stop dynamic
+
+EPaxos / Mencius / Multi-Paxos:
+
+./server.sh settings.sh stop epaxos
 
 ## Check server processes
-# Dynamic
-server.sh settings.sh list dynamic
-# EPaxos
-server.sh settings.sh list epaxos
+
+Domino:
+
+./server.sh settings.sh list dynamic
+
+EPaxos / Mencius / Multi-Paxos:
+
+./server.sh settings.sh list epaxos
 
 ## Start clients
-# Dynamic
-client.sh settings.sh start d
-# EPaxos
-client.sh settings.sh start e
-# Mencius
-client.sh settings.sh start m
-# Multi-Paxos
-client.sh settings.sh start p
+Domino:
+
+./client.sh settings.sh start d
+
+EPaxos:
+
+./client.sh settings.sh start e
+
+Mencius:
+
+./client.sh settings.sh start m
+
+Multi-Paxos:
+
+./client.sh settings.sh start p
 
 ## Stop clients
-client.sh settings.sh stop
+./client.sh settings.sh stop
 
 ## Check client processes
-client.sh settings.sh list
+./client.sh settings.sh list
 
 ## Logs
-# Collect both server and client logs
-log.sh settings.sh collect
+Collect both server and client logs:
 
-# Delete both server and client logs
-log.sh settings.sh delete 
+./log.sh settings.sh collect
 
-# List both server and client logs
-log.sh settings.sh list 
+Delete both server and client logs:
+
+./log.sh settings.sh delete 
+
+List both server and client logs:
+
+./log.sh settings.sh list 
