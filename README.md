@@ -39,7 +39,7 @@ This repo has a prototype of Domino and an implementation of Fast Paxos without 
 
 ## Quick Start
 
-Follow the README file under /exp-test to run differet protocols locally for testing the installation.
+Follow [the README file under /exp-test](https://github.com/xnyan/domino/tree/master/exp-test) to run differet protocols locally for testing the installation.
 
 ## Experiments on Azure
 
