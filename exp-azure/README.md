@@ -14,7 +14,7 @@ fastpaxos: the executable server for Fast Paxos.
 
 client: the benchmark client.
 
-# Experiments on Azure in the Domino paper.
+# Experiments on Azure to generate the figures in the Domino paper
 
 In this document, $DOMINO represents the path to this repo's root directory.
 
