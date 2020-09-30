@@ -1,0 +1,8 @@
+#dc-ID network-addr(ip:port)
+#east-us-2  10.0.0.4:10001
+#west-us-2  10.1.0.4:10002
+east-us     10.2.0.4:10001
+east-us-2   10.0.0.5:10002
+southcentral-us  10.5.0.4:10003
+west-us     10.7.0.4:10004
+west-us-2   10.1.0.5:10005

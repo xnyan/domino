@@ -1,0 +1,3 @@
+probe.inv = 10ms
+probe.duration = 24h
+log.dir = ./

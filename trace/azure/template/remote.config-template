@@ -1,0 +1,8 @@
+#dc-ID network-addr(ip:port)
+#east-us-2  104.209.153.250
+#west-us-2  52.183.63.150
+east-us     vm1-eastus.eastus.cloudapp.azure.com
+east-us-2   vm1-eastus2.eastus2.cloudapp.azure.com
+southcentral-us   vm1-southcentralus.southcentralus.cloudapp.azure.com
+west-us     vm1-westus.westus.cloudapp.azure.com
+west-us-2   vm1-westus2.westus2.cloudapp.azure.com
