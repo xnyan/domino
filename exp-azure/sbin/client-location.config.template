@@ -1,0 +1,4 @@
+#ClientMachineId, DcId, PublicIp, instanceNum, targetDcId (for EPaxos and Mencius clients to propose requests to)
+1 dc1 127.0.0.1 1 dc1
+2 dc2 127.0.0.1 1 dc2
+3 dc3 127.0.0.1 1 dc3

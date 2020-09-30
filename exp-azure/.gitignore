@@ -1,0 +1,7 @@
+client
+dynamic
+epaxos
+fastpaxos
+
+*.dat
+*.log

@@ -1,0 +1,54 @@
+{
+  "datacenter": {
+    "australiaeast": [], 
+    "eastasia": [], 
+    "eastus2": [], 
+    "francecentral": [], 
+    "southeastasia": [], 
+    "westus2": []
+  }, 
+  "oneway-delay": {
+    "australiaeast": {
+      "eastasia": "58.66ms", 
+      "eastus2": "97.98ms", 
+      "francecentral": "116.89ms", 
+      "southeastasia": "43.4ms", 
+      "westus2": "87.41ms"
+    }, 
+    "eastasia": {
+      "australiaeast": "58.67ms", 
+      "eastus2": "98.16ms", 
+      "francecentral": "92.65ms", 
+      "southeastasia": "17.63ms", 
+      "westus2": "70.56ms"
+    }, 
+    "eastus2": {
+      "australiaeast": "97.99ms", 
+      "eastasia": "98.16ms", 
+      "francecentral": "40.04ms", 
+      "southeastasia": "107.22ms", 
+      "westus2": "33.77ms"
+    }, 
+    "francecentral": {
+      "australiaeast": "116.9ms", 
+      "eastasia": "92.65ms", 
+      "eastus2": "40.02ms", 
+      "southeastasia": "74.67ms", 
+      "westus2": "68.19ms"
+    }, 
+    "southeastasia": {
+      "australiaeast": "43.41ms", 
+      "eastasia": "17.62ms", 
+      "eastus2": "107.22ms", 
+      "francecentral": "74.67ms", 
+      "westus2": "81.31ms"
+    }, 
+    "westus2": {
+      "australiaeast": "87.41ms", 
+      "eastasia": "70.55ms", 
+      "eastus2": "33.76ms", 
+      "francecentral": "68.19ms", 
+      "southeastasia": "81.28ms"
+    }
+  }
+}

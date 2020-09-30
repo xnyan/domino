@@ -1,0 +1,105 @@
+{
+  "datacenter": {
+    "canadacentral": [], 
+    "canadaeast": [], 
+    "centralus": [], 
+    "eastus2": [], 
+    "northcentralus": [], 
+    "southcentralus": [], 
+    "westcentralus": [], 
+    "westus": [], 
+    "westus2": []
+  }, 
+  "oneway-delay": {
+    "canadacentral": {
+      "canadaeast": "5.58ms", 
+      "centralus": "11.04ms", 
+      "eastus2": "14.37ms", 
+      "northcentralus": "7.15ms", 
+      "southcentralus": "21.54ms", 
+      "westcentralus": "17.75ms", 
+      "westus": "29.64ms", 
+      "westus2": "28.45ms"
+    }, 
+    "canadaeast": {
+      "canadacentral": "5.58ms", 
+      "centralus": "15.72ms", 
+      "eastus2": "18.76ms", 
+      "northcentralus": "11.63ms", 
+      "southcentralus": "25.52ms", 
+      "westcentralus": "22.78ms", 
+      "westus": "33.73ms", 
+      "westus2": "33.74ms"
+    }, 
+    "centralus": {
+      "canadacentral": "11.05ms", 
+      "canadaeast": "15.74ms", 
+      "eastus2": "15.63ms", 
+      "northcentralus": "3.9ms", 
+      "southcentralus": "10.75ms", 
+      "westcentralus": "7.13ms", 
+      "westus": "20.71ms", 
+      "westus2": "17.96ms"
+    }, 
+    "eastus2": {
+      "canadacentral": "14.36ms", 
+      "canadaeast": "18.75ms", 
+      "centralus": "15.64ms", 
+      "northcentralus": "12.82ms", 
+      "southcentralus": "13.24ms", 
+      "westcentralus": "22.84ms", 
+      "westus": "29.3ms", 
+      "westus2": "33.59ms"
+    }, 
+    "northcentralus": {
+      "canadacentral": "7.16ms", 
+      "canadaeast": "11.62ms", 
+      "centralus": "3.88ms", 
+      "eastus2": "12.82ms", 
+      "southcentralus": "15.05ms", 
+      "westcentralus": "11.89ms", 
+      "westus": "24.14ms", 
+      "westus2": "21.66ms"
+    }, 
+    "southcentralus": {
+      "canadacentral": "21.52ms", 
+      "canadaeast": "25.5ms", 
+      "centralus": "10.73ms", 
+      "eastus2": "13.25ms", 
+      "northcentralus": "15.04ms", 
+      "westcentralus": "11.52ms", 
+      "westus": "16.48ms", 
+      "westus2": "21.09ms"
+    }, 
+    "westcentralus": {
+      "canadacentral": "17.75ms", 
+      "canadaeast": "22.79ms", 
+      "centralus": "7.11ms", 
+      "eastus2": "22.84ms", 
+      "northcentralus": "11.89ms", 
+      "southcentralus": "11.54ms", 
+      "westus": "12.04ms", 
+      "westus2": "10.65ms"
+    }, 
+    "westus": {
+      "canadacentral": "29.63ms", 
+      "canadaeast": "33.72ms", 
+      "centralus": "20.69ms", 
+      "eastus2": "29.3ms", 
+      "northcentralus": "24.13ms", 
+      "southcentralus": "16.48ms", 
+      "westcentralus": "12.03ms", 
+      "westus2": "11.32ms"
+    }, 
+    "westus2": {
+      "canadacentral": "28.44ms", 
+      "canadaeast": "33.74ms", 
+      "centralus": "17.95ms", 
+      "eastus2": "33.6ms", 
+      "northcentralus": "21.65ms", 
+      "southcentralus": "21.11ms", 
+      "westcentralus": "10.65ms", 
+      "westus": "11.32ms"
+    }
+  }
+}
