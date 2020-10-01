@@ -18,7 +18,7 @@ git clone https://github.com/xnyan/domino.git $GOPATH/src/domino
 
 The root directory of this repo will be $GOPATH/src/domino
 
-## Source Code
+## Source Code and Data
 This repo has a prototype of Domino and an implementation of Fast Paxos without fault tolerance. The repo also contains the implementations of EPaxos, Mencius, and Multi-Paxos, which are imported from https://github.com/efficient/epaxos
 
 /dynamic is the source code of Domino. Dynamic is currently an alias name of Domino in the repo.
@@ -61,7 +61,7 @@ After the client completes running, stop the Domino replica servers:
 
 Follow [the README file under /exp-test](https://github.com/xnyan/domino/tree/master/exp-test) to run differet protocols locally to test the installation.
 
-## Data Traces for Inter-Region Latency on Azure
+## Data Traces of the Inter-Region Latency on Azure
 
 Use the following two commands to download the data traces for the Globe setting (6 datacenters that are globally distributed) and the NA setting (9 datacenters that are located in North America).
 
