@@ -1,6 +1,6 @@
 # Build
 
-./build.sh settings.sh
+./sbin/build.sh settings.sh
 
 If the building fails due to missing dependencies, use govendor to fetch the dependency libs.
 
