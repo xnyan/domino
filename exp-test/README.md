@@ -16,15 +16,15 @@ fetch the dependency libs.
 
 Start Domino replica servers:
 
-./server.sh start dynamic
+./server.sh start domino
 
 Start a Domino client that targets sending 2 requests per second for 10s:
 
-./client.sh dynamic
+./client.sh domino
 
 Stop Domino replica servers:
 
-./server.sh stop dynamic
+./server.sh stop domino
 
 ## Test Fast Paxos
 
