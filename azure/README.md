@@ -67,7 +67,7 @@ cd exp
 
 ./azure-cluster-setup.sh settings-Azure-NA-3r.sh
 
-# Script usage samples
+## Script usage samples
 
 sbin/settings-default.sh specifies the settings of a cluster to create
 
@@ -98,6 +98,6 @@ sbin/vm-ip.sh settings.sh > vm.ip
 
 utils/ip.py -f vm.ip -p 10001
 
-# TODO 
+## TODO 
 
 Add scripts for releasing cluster resources on Azure.
