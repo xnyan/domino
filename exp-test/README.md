@@ -18,7 +18,7 @@ Start Domino replica servers:
 
 ./server.sh start domino
 
-Start a Domino client that targets sending 2 requests per second for 10s:
+Start a Domino client that sends up to 2 requests per second for 10s:
 
 ./client.sh domino
 
