@@ -29,13 +29,13 @@ This repo has a prototype of Domino and an implementation of Fast Paxos without 
 
 /benchmark is the source code of benchmark clients.
 
-/exp-test has the scripts for quick start and testing the intallation on a local machine.
+/exp-test has the scripts for testing the intallation of the prototype on a local machine.
 
-/azure has scripts of using Azure CLI to create a clueter on Azure.
+/azure has the scripts for using Azure CLI to create a clueter across different datacenters on Azure.
 
-/exp-azure has the scripts to repeat the experiments on Azure in the Domino paper.
+/exp-azure has the scripts for repeating the experiments in the Domino paper on Azure.
 
-/trace has the scripts (/trace/azure/fig) to generate the figures about inter-region latency on Azure in the paper based on the collected data traces. It also has the source code (/trace) and the scripts (/trace/azure) for collecting the inter-region latency.
+/trace has the scripts (/trace/azure/fig) for using the collected data traces to generate the figures about the inter-region latency on Azure in the Domino paper. It also has the source code (/trace) and the scripts (/trace/azure) for collecting the inter-region latency on Azure.
 
 ## Quick Start
 
@@ -45,7 +45,7 @@ Build:
 
 ./sbin/build.sh settings.sh
 
-If the building fails due to missing dependencies, use [govendor](https://github.com/kardianos/govendor) to fetch the dependency libs.
+If the building fails due to missing dependencies, use [govendor](https://github.com/kardianos/govendor) to fetch the dependency libs. An alterative is to update to GO 1.15+ to use [GO modules](https://blog.golang.org/migrating-to-go-modules).
 
 Start Domino replica servers:
 
