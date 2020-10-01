@@ -41,11 +41,19 @@ This repo has a prototype of Domino and an implementation of Fast Paxos without 
 
 cd $GOPATH/src/domino/exp-test
 
+Build:
+
 ./sbin/build.sh settings.sh
+
+Start Domino replica servers:
 
 ./server.sh start domino
 
+Start a Domino client:
+
 ./client.sh domino
+
+After the client completes running, stop the Domino replica servers:
 
 ./server.sh stop domino
 
