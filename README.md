@@ -33,7 +33,7 @@ This repo has a prototype of Domino and an implementation of Fast Paxos without 
 
 /azure has the scripts for using Azure CLI to create a clueter across different datacenters on Azure.
 
-/exp-azure has the scripts for repeating the experiments in the Domino paper on Azure.
+/exp-azure has the scripts for repeating the experiments on Azure in the Domino paper.
 
 /trace has the scripts (/trace/azure/fig) for using the collected data traces to generate the figures about the inter-region latency on Azure in the Domino paper. It also has the source code (/trace) and the scripts (/trace/azure) for collecting the inter-region latency on Azure.
 
@@ -78,4 +78,4 @@ The data traces are byte files. Follow [the README file in /trace/azure/fig](htt
 
 ## Experiments on Azure
 
-Follow [the README file under /exp-azure](https://github.com/xnyan/domino/tree/master/exp-azure) to repeat the experiments in the Domino paper on Azure. The scripts can also be used to run the prototype in a distributed setting in a priave cluster by modifying configuration files.
+Follow [the README file under /exp-azure](https://github.com/xnyan/domino/tree/master/exp-azure) to repeat the experiments on Azure in the Domino paper.
