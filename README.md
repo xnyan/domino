@@ -1,4 +1,4 @@
-## Requirements
+## Prerequisites
 
 Operating System: Linux Ubuntu
 
