@@ -1,4 +1,4 @@
-# Build binaries
+# Build
 
 ./build.sh settings.sh
 
@@ -45,7 +45,7 @@ Generate data key file:
 Update settings.sh to replace $USER and $HOME with the corresponding directory
 path on Azure VMs.
 
-## Commit Latency with 9 datacenters and 3 replicas in North America (NA)
+## Commit latency with 9 datacenters and 3 replicas in North America (NA)
 
 Create the target cluster on Azure:
 
@@ -92,7 +92,7 @@ NOTE: stopping VMs on Azure will cause the IP addresses to change next time the
 VMs restart.  As a result restarting VMs will require generating a new
 azure-exp-vm-ip.config file and re-deloying location configuraion files.
 
-## Commit Latency with 9 datacenters and 5 replicas in North America (NA)
+## Commit latency with 9 datacenters and 5 replicas in North America (NA)
 
 cd $DOMINO/azure/exp
 
@@ -112,7 +112,7 @@ cd $DOMINO/exp-azure/fig
 
 A pdf file azure-commit-lat-na-9dc-5r.pdf will be generated.
 
-## Commit Latency with 6 datacenters and 3 replicas in the Globe setting
+## Commit latency with 6 datacenters and 3 replicas in the Globe setting
 
 cd $DOMINO/azure/exp
 
@@ -152,7 +152,7 @@ cd $DOMINO/exp-azure/fig
 
 A pdf file azure-commit-lat-globe-6dc-3r-pth.pdf will be generated.
 
-## Execution Latency with 6 datacenters and 3 replicas in the Globe setting
+## Execution latency with 6 datacenters and 3 replicas in the Globe setting
 
 cd $DOMINO/exp-azure
 
@@ -182,7 +182,7 @@ cd $DOMINO/exp-azure/fig
 
 A pdf file azure-exec-lat-globe-6dc-3r-zipf0.75-adddelay.pdf will be generated.
 
-## Comparing Commit Latency of Fast Paxos and Multi-Paxos
+## Comparing the commit latency of Fast Paxos and Multi-Paxos
 
 Experiments with 1 client:
 
@@ -219,7 +219,7 @@ cd $DOMINO/exp-azure/fig
 A pdf file azure-commit-lat-fastpaxos.pdf will be generated.
 
 
-# Script Usage Samples
+# Script usage samples
 
 Under $DOMINO/exp-azure/sbin, there are scripts that can be used to run small
 set of experiments.
