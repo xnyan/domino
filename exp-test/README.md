@@ -4,7 +4,7 @@
 
 ./sbin/build.sh settings.sh
 
-This will generates 4 binary files, client, fastpaxos, dynamic, epaxos.
+This will generate 4 binary files, client, fastpaxos, dynamic, epaxos.
 
 dynamic is an alias name for domino.
 epaxos has the protocols of EPaxos, Mencius, and Multi-Paxos.
