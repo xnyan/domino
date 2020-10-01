@@ -12,7 +12,7 @@ export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 
 ## Downlowd
 
-Clone this repo $GOPATH/src/ as follows:
+Clone this repo to $GOPATH/src/ as follows:
 
 git clone https://github.com/xnyan/domino.git $GOPATH/src/domino
 
