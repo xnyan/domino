@@ -22,17 +22,16 @@ A typical $DOMINO will be $GOPATH/src/domino/
 
 ## Creating a cluster on Azure
 
-The scripts for creating a cluster of VMs on Azure are in the "azure" folder
-under this repo's root directory.
-Follow the README in the "azure" folder to use the scripts.
-There have been pre-defined scripts to create clusters that are required to
+The scripts for creating a cluster of VMs on Azure are in the [$DOMINO/azure](https://github.com/xnyan/domino/tree/master/azure) folder.
+Follow the README in that folder to use the scripts.
+The folder also has pre-defined scripts to create clusters that are required to
 repeat the experiments on Azure in the Domino paper.
 
-NOTE: You should first make sure that your subscription of Auzre has enough
+NOTE: Make sure that your subscription of Auzre has enough
 quotas to create cluster resources that are required by the experiments.
 Also, Azure may experience high demand usage, and it may not be able to allocate
-VMs as required. Before actually running any experiment, double check that you
-have successfully started the required VMs in all target datacenters. 
+VMs as required. Before actually running any experiment, double check that the VMs in
+all target datacenters have successfully started . 
 One way to do so is to use the web UI via Azure Portal.
 
 ## Configurations for all experiments
