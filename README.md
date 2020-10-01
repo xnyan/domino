@@ -39,6 +39,16 @@ This repo has a prototype of Domino and an implementation of Fast Paxos without 
 
 ## Quick Start
 
+cd $GOPATH/src/domino/exp-test
+
+./sbin/build.sh settings.sh
+
+./server.sh start domino
+
+./client.sh domino
+
+./server.sh stop domino
+
 Follow [the README file under /exp-test](https://github.com/xnyan/domino/tree/master/exp-test) to run differet protocols locally to test the installation.
 
 ## Data Traces for Inter-Region Latency on Azure
