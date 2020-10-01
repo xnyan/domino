@@ -16,9 +16,7 @@ client: the benchmark client.
 
 # Experiments on Azure to generate the figures in the Domino paper
 
-In this document, $DOMINO represents the path to this repo's root directory.
-
-A typical $DOMINO will be $GOPATH/src/domino/
+In this readme, $DOMINO represents the path to this repo's root directory, i.e., export $DOMINO = $GOPATH/src/domino/
 
 ## Creating a cluster on Azure
 
