@@ -43,6 +43,7 @@ A pdf file eastus2-westus2-dist.pdf will be generated in current folder
 cd $GOPAHT/src/domino/trace/azure/fig
 
 ./gen-predict-rate.py
+(This would take some time to complete.)
 
 ./gen-fig-predict.py
 
