@@ -63,13 +63,13 @@ Follow [the README file under /exp-test](https://github.com/xnyan/domino/tree/ma
 
 ## Data Traces of the Inter-Region Latency on Azure
 
-Use the following two commands to download the data traces for the Globe setting (6 datacenters that are globally distributed) and the NA setting (9 datacenters that are located in North America).
+Use the following two commands to download the data traces that are collected from Azure and used in the Domino paper. The data traces are collected under the Globe setting (6 datacenters that are globally distributed) and the NA setting (9 datacenters that are located in North America), respectively.
 
-Globe setting data trace:
+Data trace under the Globe setting:
 
 curl -JLO https://rgw.cs.uwaterloo.ca/BERNARD-domino/trace-azure-globe-6dc-24h-202005170045-202005180045.tar.gz
 
-NA setting data trace:
+Data trace under the NA setting:
 
 curl -JLO https://rgw.cs.uwaterloo.ca/BERNARD-domino/trace-azure-na-9dc-24h-202005071450-202005081450.tar.gz
 
