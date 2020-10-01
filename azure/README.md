@@ -1,26 +1,28 @@
 # Azure CLI scripts 
 
-This repo defines a set of scripts to create a cluster of identical virtual
+This folder has a set of scripts to create a cluster of identical virtual
 machines (VMs) in different datacenters on Microsoft Azure and to connect
 these VMs through Azure's vitual network (VNets) peering.
 
 ./sbin: scripts to use Azure CLI
+
 ./utils: utility scripts
+
 ./exp: settings for Domino experiments
 
 # Prerequisites
 
 Install Azure CLI
 
-NOTE: Azure has limitations on the VMs and the access to datacenters for
+NOTE: Azure has limitations on VMs and the access to datacenters for
 different types of subscriptions or users.
-Make sure that you have quotas to create the expected type of VMs on Azure in
-target datacenters. 
-One way to check this (without generating bills) is to use the web interface
-(i.e., Azure Portal) to reserve a VM but not finalize the reservation.
+Make sure that your Azure subscription has access to target datacenters and
+quotas to create the expected VMs in these datacenters. 
+One way to check the availability (without generating bills) is to use the web UI
+trhough Azure Portal to reserve a VM but not finalize the reservation.
 There could also be limitations on the total number of CPUs and other
 resources.
-You can contact Azure support to increase your quotas.
+Quotas can be increased by contacting Azure support.
 
 # Quick Start
 
@@ -98,4 +100,4 @@ utils/ip.py -f vm.ip -p 10001
 
 # TODO 
 
-Add scripts for releasing the cluster resources on Azure.
+Add scripts for releasing cluster resources on Azure.
