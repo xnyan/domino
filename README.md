@@ -78,4 +78,4 @@ The data traces are byte files. Follow [the README file in /trace/azure/fig](htt
 
 ## Experiments on Azure
 
-Refer to [the README file under /exp-azure](https://github.com/xnyan/domino/tree/master/exp-azure) to repeat the experiments in the Domino paper on Azure.
+Follow [the README file under /exp-azure](https://github.com/xnyan/domino/tree/master/exp-azure) to repeat the experiments in the Domino paper on Azure.
