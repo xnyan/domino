@@ -1,4 +1,4 @@
-# Azure CLI scripts 
+# Scripts for creating a private cluster across datacenters on Azure
 
 This folder has a set of scripts to create a cluster of identical virtual
 machines (VMs) in different datacenters on Microsoft Azure and to connect
@@ -10,7 +10,7 @@ these VMs through Azure's vitual network (VNets) peering.
 
 ./exp: settings for Domino experiments
 
-# Prerequisites
+## Prerequisites
 
 Install Azure CLI
 
@@ -24,13 +24,13 @@ There could also be limitations on the total number of CPUs and other
 resources.
 Quotas can be increased by contacting Azure support.
 
-# Quick Start
+## Quick start
 
-## Azure Login
+### Azure CLI login
 
 $ az login
 
-## Configuration
+### Configuration
 
 $ cp sbin/settings-default.sh ./settings.sh
 
@@ -40,7 +40,7 @@ NOTE: Make sure to correctly specifiy the "vm_public_key" which should be the
 public key file for the private key that has been configured on Azure for VM
 logins. 
 
-## Cluster Creation
+### Cluster creation
 
 $ ./sbin/cluster.sh settings.sh
 
@@ -56,7 +56,7 @@ NOTE: Once the cluster is not needed, currently you have to stop VMs and delete
 resources via Azure Portal to avoid unnecessary bills. Make sure that needed
 data are copied out before removing storage resources.
 
-# Experimental Settings for Domino
+## Experimental settings for Domino experiments
 
 The exp folder contains the cluster settings and scripts for the experiments
 for the Domino paper.
@@ -67,7 +67,7 @@ cd exp
 
 ./azure-cluster-setup.sh settings-Azure-NA-3r.sh
 
-# Script List
+# Script usage samples
 
 sbin/settings-default.sh specifies the settings of a cluster to create
 
