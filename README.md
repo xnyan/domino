@@ -45,7 +45,7 @@ Build:
 
 ./sbin/build.sh settings.sh
 
-If the building fails due to missing dependencies, use [govendor](https://github.com/kardianos/govendor) to fetch the dependency libs. An alterative is to update to GO 1.15+ to use [GO modules](https://blog.golang.org/migrating-to-go-modules).
+If the building fails due to missing dependencies, use [govendor](https://github.com/kardianos/govendor) to fetch the dependency libs. An alterative is to upgrade to GO 1.15+ to use [GO modules](https://blog.golang.org/migrating-to-go-modules).
 
 Start Domino replica servers:
 
