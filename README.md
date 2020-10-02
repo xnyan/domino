@@ -6,7 +6,7 @@ Install GO 1.14+
 
 Set up $GOROOT and $GOPATH following the GO installation
 
-Set up $PATH to include $GORROT/bin and $GOPATH/bin as follows:
+Set up $PATH to include $GOROOT/bin and $GOPATH/bin as follows:
 
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin" 
 
