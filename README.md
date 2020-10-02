@@ -73,7 +73,7 @@ Data trace under the NA setting:
 
 curl -JLO https://rgw.cs.uwaterloo.ca/BERNARD-domino/trace-azure-na-9dc-24h-202005071450-202005081450.tar.gz
 
-The data traces are byte files. Follow [the README file in /trace/azure/fig](https://github.com/xnyan/domino/tree/master/trace/azure/fig) to parse the files and generate the figures about the inter-region latency measurments in the Domino paper.
+The data traces are byte files. Follow [the README file in /trace/azure/fig](https://github.com/xnyan/domino/tree/master/trace/azure/fig) to parse the files and re-generate the figures about the inter-region latency on Azure in the Domino paper.
 
 
 ## Experiments on Azure
