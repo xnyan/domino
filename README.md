@@ -35,7 +35,7 @@ This repo has a prototype of Domino and an implementation of Fast Paxos without 
 
 /exp-azure has the scripts for repeating the experiments on Azure in the Domino paper.
 
-/trace has the scripts (/trace/azure/fig) for using the collected data traces to generate the figures about the inter-region latency on Azure in the Domino paper. It also has the source code (/trace) and the scripts (/trace/azure) for collecting the inter-region latency on Azure.
+/trace has the scripts (/trace/azure/fig) for using the collected data traces to generate the figures about the inter-region latency on Azure in the Domino paper. It also has the source code and the scripts (/trace/azure) for collecting the inter-region latency on Azure.
 
 ## Quick Start
 
