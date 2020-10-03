@@ -12,7 +12,7 @@ export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 
 ## Download and parse trace Files
 
-cd $GOPAHT/src/domino/trace/azure/fig
+cd $GOPATH/src/domino/trace/azure/fig
 
 curl -JLO https://rgw.cs.uwaterloo.ca/BERNARD-domino/trace-azure-globe-6dc-24h-202005170045-202005180045.tar.gz ./
 
