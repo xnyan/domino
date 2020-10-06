@@ -37,7 +37,7 @@ def lat_cdf(output_file, exp_dir_map, p_list, xmax=0, exp_n = 10):
 
 def custom_lat_cdf(output_file, exp_dir_map, exp_list, exp_label, xmax=0, exp_n = 10):
   print output_file
-  fs = 14; bw = 0.5; lw = 1.5; cs=2.5; ms=4
+  fs = 15; bw = 0.5; lw = 1.5; cs=2.5; ms=4
   #plot
   plt.figure(figsize=(8,4))
   for exp in exp_list:
@@ -51,15 +51,16 @@ def custom_lat_cdf(output_file, exp_dir_map, exp_list, exp_label, xmax=0, exp_n 
     plt.plot(lat_list, Y, exp_label[exp][0], linewidth=lw, \
       label=exp_label[exp][1], color=exp_label[exp][2])
   plt.ylabel('CDF', fontsize=fs)
-  plt.ylim(ymin=0, ymax=1.24)
+  plt.ylim(ymin=0, ymax=1.35)
   plt.yticks(np.arange(0, 1.01, 0.2), fontsize=fs)
   plt.xlabel('Commit Latency (ms)', fontsize=fs)
   plt.xlim(xmin=0)
   if xmax > 0:
     plt.xlim(xmax=xmax)
+  plt.xticks(fontsize=fs)
   #plt.xticks(np.arange(0, 700, 100), fontsize=fs)
   plt.tick_params(axis='both',direction='in',labelsize=fs)
-  plt.legend(loc='upper left', ncol=2, fontsize=(fs-3))
+  plt.legend(loc='upper left', ncol=2, fontsize=(fs-1))
   lb_color='blue'
   plt.axhline(y=0.5, color=lb_color, linestyle='-.', linewidth=0.5)
   plt.text(0, 0.5, "{:.1f}".format(0.5), color=lb_color, ha='right', va='center', fontsize=fs)
