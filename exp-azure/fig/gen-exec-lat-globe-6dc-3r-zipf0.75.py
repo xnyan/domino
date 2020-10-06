@@ -8,8 +8,8 @@ p_list = ['dt', 'm', 'ef', 'p']
 # Text : (x, y)
 txt_map = {
     '(1)' : (260, 0.2), \
-    '(2)' : (170, 0.52), \
-    '(3)' : (230, 0.9), \
+    '(2)' : (170, 0.54), \
+    '(3)' : (230, 0.88), \
     }
 exp_dir_map = {
     'dt':('Domino-8ms' , '../exp-data/azure-exec-lat-globe-6dc-3r-zipf0.75/dynamic/'),\

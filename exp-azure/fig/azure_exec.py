@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def lat_cdf(output_file, p_exp_map, p_list, xmax=0, exp_n = 10, txt_map = None):
-  fs = 14; bw = 0.5; lw = 1.5; cs=2.5; ms=4
+  fs = 19; bw = 0.5; lw = 1.5; cs=2.5; ms=4
   #plot
   plt.figure(figsize=(8,4))
   for p in p_list:
@@ -27,7 +27,7 @@ def lat_cdf(output_file, p_exp_map, p_list, xmax=0, exp_n = 10, txt_map = None):
     plt.xlim(xmax=xmax)
   #plt.xticks(np.arange(0, 700, 100), fontsize=fs)
   plt.tick_params(axis='both',direction='in',labelsize=fs)
-  plt.legend(loc='lower right', ncol=1, fontsize=(fs-1))
+  plt.legend(loc='lower right', ncol=1, fontsize=(fs-2))
   lb_color='blue'
   plt.axhline(y=0.5, color=lb_color, linestyle='-.', linewidth=0.5)
   plt.text(0, 0.5, "{:.1f}".format(0.5), color=lb_color, ha='right', va='center', fontsize=fs)
@@ -70,7 +70,7 @@ def custom_lat_cdf(output_file, exp_dir_map, p_list, format_table, xmax=0, exp_n
 
 def lat_box(output_file, exp_dir_map, p_list, p_tick_label, x_label, whisker = [5, 95], ymin = -1, ymax=0, exp_n = 10):
   print output_file
-  fs = 14; bw = 0.5; lw = 1.5; cs=2.5; ms=4
+  fs = 19; bw = 0.5; lw = 1.5; cs=2.5; ms=4
   #plot
   plt.figure(figsize=(8,4))
   lat_box = list()

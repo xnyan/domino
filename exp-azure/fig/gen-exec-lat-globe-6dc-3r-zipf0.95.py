@@ -7,8 +7,8 @@ p_list = ['dt', 'm', 'ef', 'p']
 ## Exec latency zipf 0.95 (dynamic-95th-8ms)
 # Text : (x, y)
 txt_map = {
-    '(4)' : (200, 0.4), \
-    '(5)' : (450, 0.7), \
+    '(4)' : (200, 0.42), \
+    '(5)' : (460, 0.7), \
     }
 exp_dir_map = {
     'dt':('Domino-8ms' , '../exp-data/azure-exec-lat-globe-6dc-3r-zipf0.95/dynamic/'),\
