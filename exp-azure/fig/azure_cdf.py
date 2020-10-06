@@ -7,7 +7,7 @@ import numpy as np
 
 def lat_cdf(output_file, exp_dir_map, p_list, xmax=0, exp_n = 10):
   print output_file
-  fs = 13; bw = 0.5; lw = 1.5; cs=2.5; ms=4
+  fs = 19; bw = 0.5; lw = 1.5; cs=2.5; ms=4
   #plot
   plt.figure(figsize=(8,4))
   for p in p_list:
@@ -22,11 +22,12 @@ def lat_cdf(output_file, exp_dir_map, p_list, xmax=0, exp_n = 10):
       label=label.protocol_label[p], color=label.line_color[p])
   plt.ylabel('CDF', fontsize=fs)
   plt.ylim(ymin=0, ymax=1.05)
-  plt.yticks(np.arange(0, 1.01, 0.2), fontsize=fs+1)
-  plt.xlabel('Commit Latency (ms)', fontsize=fs+1)
+  plt.yticks(np.arange(0, 1.01, 0.2), fontsize=fs)
+  plt.xlabel('Commit Latency (ms)', fontsize=fs)
   plt.xlim(xmin=0)
   if xmax > 0:
     plt.xlim(xmax=xmax)
+  plt.xticks(fontsize=fs)
   #plt.xticks(np.arange(0, 700, 100), fontsize=fs)
   plt.tick_params(axis='both',direction='in',labelsize=fs)
   plt.legend(loc='lower right', ncol=1, fontsize=(fs))
