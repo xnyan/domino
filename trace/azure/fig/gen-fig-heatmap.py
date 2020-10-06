@@ -13,5 +13,6 @@ for src in src_dc_l:
     print df
     ##h.lat_heat_map(df, 1, 1, 12, 1, 'min', 'ms', 'ms')
     #h.vertical_lat_heat_map(df, 1, 1, 12, 1, 'min', 'ms', 'ms')
-    h.lat_heat_map(df, 1, 1, 15, 1, 'min', 'ms', 'ms')
+    #h.lat_heat_map(df, 1, 1, 15, 1, 'min', 'ms', 'ms')
+    h.lat_heat_map(df, 1, 1, 11, 1, 'min', 'ms', 'ms')
 

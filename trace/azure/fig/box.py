@@ -92,14 +92,15 @@ def custom_slide_window_box_range(output_file, f, range_offset, range_length, wi
   clock_l, rt_l = c.gen_data_range(f, range_offset, range_length, clock_unit, rt_unit, offset_unit)
   rt_box = slide_window(window_size, slide_size, clock_l, rt_l)
   #Plot
-  fs = 13; bw = 0.5; lw = 1.5; cs=2.5; ms=4
+  fs = 14; bw = 0.5; lw = 1.5; cs=2.5; ms=4
   plt.figure(figsize=(8,4))
   plt.tick_params(axis='both', labelsize=fs)
   plt.boxplot(rt_box, whis=[5, 95], showfliers=False) # No show of outliers
   #plt.boxplot(rt_box, whis=[5, 95], sym='') # No show of outliers for some older versions
   #plt.boxplot(rt_box, whis=[5, 95])
   #plt.boxplot(rt_box, whis=[0, 100])
-  x_tick_idx = range(1, len(rt_box)+1, (len(rt_box)+1)/17)
+  #x_tick_idx = range(1, len(rt_box)+1, (len(rt_box)+1)/17)
+  x_tick_idx = range(1, len(rt_box)+1, (len(rt_box)+1)/10)
   x_tick_label = list()
   for x in x_tick_idx:
     if x%2 == 0:

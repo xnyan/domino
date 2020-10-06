@@ -72,7 +72,7 @@ def predict_rate_percentile(data_dir, dc_l):
     plt.savefig(output_file, bbox_inches='tight')
 
 def predict_rate_percentile_multiWindow(output_file, data_dir, src_dc, dst_dc, w_l):
-  fs = 13; bw = 0.5; lw = 1.5; cs=2.5; ms=4
+  fs = 14; bw = 0.5; lw = 1.5; cs=2.5; ms=4
   plt.figure(figsize=(8,4))
   count=0
   for window_size in w_l:
@@ -89,12 +89,13 @@ def predict_rate_percentile_multiWindow(output_file, data_dir, src_dc, dst_dc, w
   plt.ylabel('Correct Prediction Rate (%)', fontsize=fs)
   plt.ylim(ymin=0)
   plt.yticks(np.arange(0, 104, 10), fontsize=fs)
-  plt.xlabel('Percentile Delay in Network Measurements for Latency Prediction (th)', fontsize=fs)
+  plt.xlabel('Percentile Delay in Network Measurements for Prediction (th)', fontsize=fs)
   plt.xlim(xmin=0)
-  plt.xticks(np.arange(0, 104, 5), fontsize=fs)
+  plt.xticks(np.arange(0, 104, 10), fontsize=fs)
   plt.tick_params(axis='both', direction='in', labelsize=fs)
-  #plt.title(src_dc + '-' + dst_dc, fontsize=fs)
-  plt.legend(loc='lower right', ncol=1, fontsize=(fs-1))
+  ##plt.title(src_dc + '-' + dst_dc, fontsize=fs)
+  #plt.legend(loc='lower right', ncol=1, fontsize=(fs-1))
+  plt.legend(loc='upper left', ncol=1, fontsize=(fs-1))
   plt.savefig(output_file, bbox_inches='tight')
 
 data_dir='./'

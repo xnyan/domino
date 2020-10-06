@@ -95,10 +95,10 @@ def lat_heat_map(f, interval, lat_step, lat_up_num, lat_down_num, clock_unit = '
   for h in hmap:
     print h
   output_file = f + "-heat.pdf"
-  fs = 11; bw = 0.5; lw = 1.5; cs=2.5; ms=4
+  fs = 12; bw = 0.5; lw = 1.5; cs=2.5; ms=4
   plt.figure(figsize=(8,4))
   fig, ax = plt.subplots()
-  ax.tick_params(axis='both', labelsize=fs)
+  ax.tick_params(axis='both', labelsize=fs+2)
   #plt.matshow(hmap)
   #im = ax.imshow(hmap)
   #im = ax.imshow(hmap, interpolation='nearest', cmap=cm.Greys)
@@ -113,7 +113,7 @@ def lat_heat_map(f, interval, lat_step, lat_up_num, lat_down_num, clock_unit = '
   #plt.setp(ax.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor")
   plt.ylabel('Network Roundtrip Delay ' + '(' + rt_unit + ')', fontsize=fs+2)
   ax.set_yticks(np.arange(len(lat_label)))
-  ax.set_yticklabels(lat_label, fontsize=fs)
+  ax.set_yticklabels(lat_label, fontsize=fs+2)
   # Loop over data dimensions and create text annotations.
   #for i in range(len(vegetables)):
   #  for j in range(len(farmers)):
@@ -125,7 +125,7 @@ def lat_heat_map(f, interval, lat_step, lat_up_num, lat_down_num, clock_unit = '
   ##cbar = ax.figure.colorbar(im, ax=ax, orientation = 'horizontal', fraction=0.045) # horizontal color bar
   cbar = ax.figure.colorbar(im, ax=ax, orientation = 'horizontal')
   cbar.ax.set_xlabel(cbarlabel, va="top", fontsize=fs+2)
-  cbar.ax.tick_params(axis='both', labelsize=fs)
+  cbar.ax.tick_params(axis='both', labelsize=fs+2)
   #ax.set_title(f, fontsize=fs)
   plt.savefig(output_file, bbox_inches='tight')
 
