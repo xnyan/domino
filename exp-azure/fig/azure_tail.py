@@ -41,13 +41,13 @@ def plot_lat_bar_and_line(output_file, y_label, x_tick_l, y_map, y_list, line_li
   #ymax = 0
   for l in line_list:
     plt.axhline(y=line_map[l][0], color=line_map[l][2], linestyle=line_map[l][3], linewidth=0.5)
-    plt.text(4.5, line_map[l][0]+7, line_map[l][1], color=line_map[l][2], ha='center', va='center', fontsize=(fs-3))
+    plt.text(4, line_map[l][0]+10, line_map[l][1], color=line_map[l][2], ha='center', va='center', fontsize=(fs-2))
   #  if line_map[l][0] > ymax:
   #    ymax = line_map[l][0]
   #ymax += 30
   #ax.set_ylim(ymin=0, ymax=ymax)
-  ax.set_ylim(ymin=0)
-  plt.legend(loc='upper right', ncol=1, fontsize=(fs-3))
+  ax.set_ylim(ymin=0, ymax=450)
+  plt.legend(loc='upper right', ncol=1, fontsize=(fs-1))
   plt.tick_params(axis='both',direction='in',labelsize=fs)
   plt.savefig(output_file, bbox_inches='tight')
 
