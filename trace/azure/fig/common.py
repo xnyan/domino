@@ -5,6 +5,10 @@ import os
 import operator
 import numpy as np
 from enum import Enum
+import matplotlib
+# Avoid type 3 fonts
+matplotlib.rcParams['pdf.fonttype'] = 42
+matplotlib.rcParams['ps.fonttype'] = 42
 
 class Stat(Enum):
   __order__ = 'COUNT MEAN STDEV ERR95 P95th P99th MEDIAN MAX MIN'
