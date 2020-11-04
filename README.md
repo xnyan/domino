@@ -2,7 +2,7 @@
 
 Operating System: Linux Ubuntu
 
-Install GO 1.14+
+Install GO 1.13+
 
 Set up $GOROOT and $GOPATH following the GO installation
 
@@ -45,7 +45,7 @@ Build:
 
 ./sbin/build.sh settings.sh
 
-If the building fails due to missing dependencies, use [govendor](https://github.com/kardianos/govendor) to fetch the dependency libs. An alterative is to upgrade to GO 1.15+ to use [GO modules](https://blog.golang.org/migrating-to-go-modules), which should automatically download all of the dependencies.
+NOTE: The source code of dependency libs are already under /vendor, which are fetched by using [govendor](https://github.com/kardianos/govendor). Although [GO modules](https://blog.golang.org/migrating-to-go-modules) are widely adopted since GO 1.15, there should be no need to use GO modules for Domino as long as this repo is cloned at $GOPATH/src/domino. For users that prefer using GO modules, run "go mod init" under $GOPATH/src/domino before building executables.
 
 Start Domino replica servers:
 
