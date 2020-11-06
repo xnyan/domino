@@ -73,7 +73,11 @@ Data trace under the NA setting:
 
 curl -JLO https://rgw.cs.uwaterloo.ca/BERNARD-domino/trace-azure-na-9dc-24h-202005071450-202005081450.tar.gz
 
-The data traces are binary files. Follow [the README file in /trace/azure/fig](https://github.com/xnyan/domino/tree/master/trace/azure/fig) to parse the files and re-generate the figures about the inter-region latency on Azure in the Domino paper.
+NOTE: Extracting both of the two .tar.gz files would require about 50 GB disk spaces.
+
+The data traces are plain text files. Each data file is named as "{host_region}-{target-region}.log.txt". The first line in each data file is a comment. After that each line consists of three timestamps: a client's sending time of a probing request, the time when the client receives the probing response from the target server, and the time when the server receives the probing request. All of the three timestamps are in nanoseconds.
+
+To re-generate the figures about the inter-region latency on Azure in the Domino paper, please follow [the README file in /trace/azure/fig](https://github.com/xnyan/domino/tree/master/trace/azure/fig).
 
 
 ## Experiments on Azure
