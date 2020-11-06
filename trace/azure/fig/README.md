@@ -2,7 +2,7 @@
 
 Follow the following the steps:
 
-## Download trace Files
+## Download trace files
 
 cd $GOPATH/src/domino/trace/azure/fig
 
