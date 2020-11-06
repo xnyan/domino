@@ -29,7 +29,7 @@ def arrival_time_predict_rate_percentile_multiWindow(output_file, data_dir, src_
     predict_rate_l = list()
     for pth in p_l:
       #eastus2-westus2.log.txt.owd-pth99.0-window1000ms
-      df=data_dir+'/'+src_dc+'-'+dst_dc+'.log.txt.owd-pth'+str(pth)+".0-window"+str(w_s)+'ms'
+      df=data_dir+'/'+src_dc+'-'+dst_dc+'.log.txt-arrivaltime-pth'+str(pth)+".0-window"+str(w_s)+'ms.txt'
       predict_rate_l.append(load_owd_stat(df))
     #percentile_l = [d[1] for d in data]
     #predict_rate_l = [100 * d[2] for d in data]
@@ -53,7 +53,7 @@ def arrival_time_predict_rate_percentile_multiWindow(output_file, data_dir, src_
   plt.legend(loc='upper left', ncol=1, fontsize=(fs-1))
   plt.savefig(output_file, bbox_inches='tight')
 
-data_dir='./owd-globe'
+data_dir='./arrivaltime-globe'
 pth_l = np.arange(5,100, 5)
 p_l=list()
 for p in pth_l:
