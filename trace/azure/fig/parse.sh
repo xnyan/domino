@@ -15,6 +15,7 @@ eastus2-australiaeast.log
 #eastus2-southeastasia.log
 )
 
+#for lf in ${data_dir}/*.log
 for l in ${log_list[@]}
 do
   lf="$data_dir/$l"
