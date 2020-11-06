@@ -23,3 +23,7 @@ VMs by replacing the $USER and $HOME fields
 ## Start to run the network measurements
 
 ./exp.sh
+
+## Parsing collected data
+
+The collected data are binary files. Use the parser in $GOPATH/src/domino/trace/parser to parse convert a binary file to a plain-text file.
