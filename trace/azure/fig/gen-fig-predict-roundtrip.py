@@ -19,7 +19,7 @@ def load_predict_rate(f):
 def predict_rate_window_size(data_dir, dc_l):
   fs = 10; bw = 0.5; lw = 1.5; cs=2.5; ms=4
   for src_dc in dc_l:
-    output_file = data_dir + '/predictionrate-' + src_dc + '-window.pdf'
+    output_file = data_dir + '/roundtrip-predictionrate-' + src_dc + '-window.pdf'
     #output_file = src_dc + '-window.pdf'
     plt.figure(figsize=(8,4))
     for dst_dc in dc_l:
@@ -46,7 +46,7 @@ def predict_rate_window_size(data_dir, dc_l):
 def predict_rate_percentile(data_dir, dc_l):
   fs = 10; bw = 0.5; lw = 1.5; cs=2.5; ms=4
   for src_dc in dc_l:
-    output_file = data_dir + '/predictionrate-' + src_dc + '-percentile.pdf'
+    output_file = data_dir + '/roundtrip-predictionrate-' + src_dc + '-percentile.pdf'
     #output_file = src_dc + '-percentile.pdf'
     plt.figure(figsize=(8,4))
     for dst_dc in dc_l:
@@ -101,4 +101,4 @@ def predict_rate_percentile_multiWindow(output_file, data_dir, src_dc, dst_dc, w
 data_dir='./'
 w_l = [100, 200, 400, 600, 800, 1000]
 src_dc, dst_dc = 'eastus2', 'westus2'
-predict_rate_percentile_multiWindow(src_dc+'-'+dst_dc+'-predictrate.pdf', data_dir, src_dc, dst_dc, w_l) 
+predict_rate_percentile_multiWindow(src_dc+'-'+dst_dc+'-roundtrip-predictrate.pdf', data_dir, src_dc, dst_dc, w_l) 
