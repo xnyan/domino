@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import common as c
-import predict as p
+import roundtrip as p
 import numpy as np
 # Fixed Percentile, varies window size
 def predict_window(input_dir, dc_l, output_dir, percentile, window_l, is_percentile_scale):
