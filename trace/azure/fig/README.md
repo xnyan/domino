@@ -6,7 +6,7 @@ Follow the following the steps:
 
 cd $GOPATH/src/domino/trace/azure/fig
 
-curl -JLO https://rgw.cs.uwaterloo.ca/BERNARD-domino/trace-azure-globe-6dc-24h-202005170045-202005180045.tar.gz ./
+curl -JLO https://rgw.cs.uwaterloo.ca/BERNARD-domino/trace-azure-globe-6dc-24h-202005170045-202005180045.tar.gz
 
 tar -xvzf trace-azure-globe-6dc-24h-202005170045-202005180045.tar.gz
 
