@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-import matplotlib.pyplot as plt
 from collections import deque
 import numpy as np
 import common as c
