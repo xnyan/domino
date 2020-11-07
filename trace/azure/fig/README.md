@@ -38,3 +38,14 @@ cd $GOPATH/src/domino/trace/azure/fig
 ./gen-fig-predict-arrivaltime.py
 
 A pdf file eastus2-westus2-arrivaltime-predictrate.pdf will be generated in the current folder
+
+## Generate arrival-time prediction stats 
+
+cd $GOPATH/src/domino/trace/azure/fig
+
+./gen-arrivaltime-globe.sh
+(This would take some time to complete.)
+
+./gen-arrivaltime-table.py
+
+Several .csv files are will be generated in folder arrivaltime-globe
