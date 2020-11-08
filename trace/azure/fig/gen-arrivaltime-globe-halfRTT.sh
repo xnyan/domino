@@ -23,6 +23,6 @@ do
     fi
     echo ${src_dc} ${dst_dc} ${data_dir} ${output_dir}
     dat_f="${src_dc}-${dst_dc}.log.txt"
-    ./gen-arrivaltime.py ${data_dir} ${dat_f} ${output_dir} ${pth} ${window}
+    ./gen-arrivaltime-halfRTT.py ${data_dir} ${dat_f} ${output_dir} ${pth} ${window}
   done
 done
