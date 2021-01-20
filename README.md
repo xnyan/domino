@@ -1,3 +1,9 @@
+## About
+
+Domino is a low-latency state machine replication protocol in WANs. 
+
+This repo includes the implemenation of Domino and the network measruement data traces on Microsoft Azure for our CoNEXT'20 paper, ["Domino: Using Network Measurements to Reduce State Machine Replication Latency in WANs."](https://dl.acm.org/doi/10.1145/3386367.3431291)
+
 ## Prerequisites
 
 Operating System: Linux Ubuntu
