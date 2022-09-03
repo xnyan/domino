@@ -89,3 +89,26 @@ To re-generate the figures about the inter-region latency on Azure in the Domino
 ## Experiments on Azure
 
 Follow [the README file under /exp-azure](https://github.com/xnyan/domino/tree/master/exp-azure) to repeat the experiments on Azure in the Domino paper.
+
+## personal use
+
+### How to execute any Protocol
+
+Pull [skoya76/test:v3](https://hub.docker.com/layers/skoya76/test/v3/images/sha256-4681138022c08c016630cf876ecc727d8a30b7f56ceac96144dda7c66b15a1d0?context=repo&tab=layers) from Dockerhub.
+
+Input follow commands:
+
+go mod init
+
+./sbin/build.sh settings.sh
+
+./server start "Protocol"
+
+./client "Protocol"
+
+./server stop "Protocol"
+
+### Memo
+
+export GOPATH=
+export PATH=$GOPATH/bin:$PATH
