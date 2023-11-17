@@ -3,3 +3,5 @@
 *.ip
 *.ip.private
 *.ip.public
+
+azure/settings.sh
