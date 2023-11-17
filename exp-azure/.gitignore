@@ -5,3 +5,8 @@ fastpaxos
 
 *.dat
 *.log
+
+latency
+
+*.config
+slack_webhook_url.txt
