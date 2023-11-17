@@ -199,6 +199,7 @@ func (c *EpaxosClient) GetTxnId() int32 {
 type EpaxosRet struct {
 	IsAccept bool
 	Val      string
+	IsFast	bool
 }
 
 func (c *EpaxosClient) SyncExecTxn(
@@ -215,7 +216,7 @@ func (c *EpaxosClient) SyncExecTxn(
 	ret := done.GetValue().(*EpaxosRet)
 	//logger.Infof("Received cmdId = %d isAccept = %t", args.CommandId, ret.IsAccept)
 	c.DelCmd(args.CommandId)
-	return false, ret.IsAccept, false, ret.Val
+	return false, ret.IsAccept, ret.IsFast, ret.Val
 }
 
 func (c *EpaxosClient) WaitCmd(cmdId int32) *common.Future {
@@ -247,9 +248,17 @@ func (c *EpaxosClient) HandleReplies() {
 			logger.Fatalf("No thread is waiting for cmdId = %d", reply.CommandId)
 		}
 		if reply.OK != 0 {
-			done.SetValue(&EpaxosRet{IsAccept: true, Val: string(reply.Value)})
+			if reply.Slowpath != 0 {
+				done.SetValue(&EpaxosRet{IsAccept: true, Val: string(reply.Value), IsFast: true})
+			} else {
+				done.SetValue(&EpaxosRet{IsAccept: true, Val: string(reply.Value), IsFast: false})
+			}
 		} else {
-			done.SetValue(&EpaxosRet{IsAccept: false, Val: string(reply.Value)})
+			if reply.Slowpath != 0 {
+				done.SetValue(&EpaxosRet{IsAccept: false, Val: string(reply.Value), IsFast: true })
+			} else {
+				done.SetValue(&EpaxosRet{IsAccept: false, Val: string(reply.Value), IsFast: false})
+			}
 		}
 	}
 }
@@ -284,8 +293,8 @@ func (c *EpaxosClient) ExecTxn(
 		return false, false, false, ""
 	} else {
 		c.Propose(args)
-		_, ok, val := c.WaitReply(c.replyAddr)
-		return false, ok, false, val
+		_, ok, val , isFast := c.WaitReply(c.replyAddr)
+		return false, ok, isFast, val
 	}
 }
 
@@ -320,7 +329,7 @@ func (c *EpaxosClient) Propose(args *genericsmrproto.Propose) string {
 }
 
 //Returns commondId, OK, value
-func (c *EpaxosClient) WaitReply(addr string) (int32, bool, string) {
+func (c *EpaxosClient) WaitReply(addr string) (int32, bool, string, bool) {
 	reader := c.GetReader(addr)
 
 	l := c.GetReaderLock(addr)
@@ -331,11 +340,18 @@ func (c *EpaxosClient) WaitReply(addr string) (int32, bool, string) {
 	if err := reply.Unmarshal(reader); err != nil {
 		logger.Fatal("Error when reading:", err)
 	}
-
 	if reply.OK != 0 {
-		return reply.CommandId, true, string(reply.Value)
+		if reply.Slowpath != 0 {
+			return reply.CommandId, true, string(reply.Value), true
+		} else {
+			return reply.CommandId, true, string(reply.Value), false
+		}
 	} else {
-		return reply.CommandId, false, string(reply.Value)
+		if reply.Slowpath != 0 {
+			return reply.CommandId, false, string(reply.Value), true
+		} else {
+			return reply.CommandId, false, string(reply.Value), false
+		}
 	}
 }
 

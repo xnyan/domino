@@ -130,6 +130,8 @@ func exec(s *dynamic.Server, kv *kv.KvStore) {
 
 		ret := ""
 		if IsExec {
+			duration := time.Now().UnixNano() - e.GetStartDuration()
+			logger.Infof("Executes idx = %s, duration = %v ns", cmd.Id , duration)
 			ret = execCmd(kv, cmd)
 		}
 

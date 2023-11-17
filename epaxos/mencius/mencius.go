@@ -22,6 +22,9 @@ var logger = logging.MustGetLogger("mencius")
 var EARLY_COMMIT_ACK bool = false // true: a replica sends commit ack once replication is done
 //end change by x
 
+// Added by @skoya76
+// Added by @skoya76
+
 const CHAN_BUFFER_SIZE = 200000
 const WAIT_BEFORE_SKIP_MS = 50
 const NB_INST_TO_SKIP = 100000
@@ -90,13 +93,13 @@ type LeaderBookkeeping struct {
 }
 
 func NewReplica(id int, peerAddrList []string, thrifty bool, exec bool, dreply bool, durable bool,
-	keyList []string, initVal string,
+	keyList []string, initVal string,measure_commit_to_exec_time bool,
 ) *Replica {
 	skippedTo := make([]int32, len(peerAddrList))
 	for i := 0; i < len(skippedTo); i++ {
 		skippedTo[i] = -1
 	}
-	r := &Replica{genericsmr.NewReplica(id, peerAddrList, thrifty, exec, dreply, keyList, initVal),
+	r := &Replica{genericsmr.NewReplica(id, peerAddrList, thrifty, exec, dreply, keyList, initVal, measure_commit_to_exec_time),
 		make(chan fastrpc.Serializable, genericsmr.CHAN_BUFFER_SIZE*4),
 		make(chan fastrpc.Serializable, genericsmr.CHAN_BUFFER_SIZE),
 		make(chan fastrpc.Serializable, genericsmr.CHAN_BUFFER_SIZE),
@@ -731,14 +734,19 @@ func (r *Replica) handleAcceptReply(areply *menciusproto.AcceptReply) {
 			// start change by x
 			if EARLY_COMMIT_ACK { //Mencius reply commit earlier
 				if inst.status != READY {
-					if inst.lb.clientProposal != nil && !r.Dreply {
-						//logger.Infof("Sending early commit ack for cmdId = %d", inst.lb.clientProposal.CommandId)
-						r.ReplyProposeTS(&genericsmrproto.ProposeReplyTS{TRUE, inst.lb.clientProposal.CommandId, state.NIL, inst.lb.clientProposal.Timestamp},
-							inst.lb.clientProposal.Reply)
+					if !r.MeasureCommitToExecTime {
+						if inst.lb.clientProposal != nil && !r.Dreply {
+							logger.Infof("Sending early commit ack for cmdId = %d", inst.lb.clientProposal.CommandId)
+							r.ReplyProposeTS(&genericsmrproto.ProposeReplyTS{TRUE, inst.lb.clientProposal.CommandId, state.NIL, inst.lb.clientProposal.Timestamp,FALSE},
+								inst.lb.clientProposal.Reply)
+						}
+					}else{
+						if inst.lb.clientProposal != nil {
+							inst.lb.clientProposal.Timestamp = time.Now().UnixNano()
+						}	
 					}
 				}
 			}
-			// end change by x
 			inst.status = READY
 			if !inst.skipped && areply.Instance > r.latestInstReady {
 				r.latestInstReady = areply.Instance
@@ -794,11 +802,16 @@ func (r *Replica) updateBlocking(instance int32) {
 				if inst.lb.clientProposal != nil && !r.Dreply {
 					// give client the all clear
 					dlog.Printf("Sending ACK for req. %d\n", inst.lb.clientProposal.CommandId)
-					//// start change by x
-					if !EARLY_COMMIT_ACK {
-						//logger.Infof("Sending mencius commit ack for cmdId = %d", inst.lb.clientProposal.CommandId)
-						r.ReplyProposeTS(&genericsmrproto.ProposeReplyTS{TRUE, inst.lb.clientProposal.CommandId, state.NIL, inst.lb.clientProposal.Timestamp},
-							inst.lb.clientProposal.Reply)
+					if !r.MeasureCommitToExecTime {
+						if !EARLY_COMMIT_ACK {
+							//logger.Infof("Sending mencius commit ack for cmdId = %d", inst.lb.clientProposal.CommandId)
+							r.ReplyProposeTS(&genericsmrproto.ProposeReplyTS{TRUE, inst.lb.clientProposal.CommandId, state.NIL, inst.lb.clientProposal.Timestamp, FALSE},
+								inst.lb.clientProposal.Reply)
+						}
+					}else{
+						if inst.lb.clientProposal != nil {
+							inst.lb.clientProposal.Timestamp = time.Now().UnixNano()
+						}	
 					}
 					//// end change by x
 					//// start of original code
@@ -888,6 +901,15 @@ func (r *Replica) executeCommands() {
 				break
 			}
 
+			if r.MeasureCommitToExecTime {
+				if inst.lb != nil && inst.lb.clientProposal != nil {
+					startTime := inst.lb.clientProposal.Timestamp
+					endTime := time.Now().UnixNano()
+					elapsed := time.Duration(endTime - startTime)
+					logger.Infof("Elapsed time from commit to execution start: %d ns", elapsed)
+				}
+			}
+
 			val := inst.command.Execute(r.State)
 
 			if r.Dreply && inst.lb != nil && inst.lb.clientProposal != nil {
@@ -895,7 +917,7 @@ func (r *Replica) executeCommands() {
 				//r.ReplyProposeTS(&genericsmrproto.ProposeReplyTS{TRUE, inst.lb.clientProposal.CommandId, state.NIL, inst.lb.clientProposal.Timestamp},
 				//	inst.lb.clientProposal.Reply)
 				//logger.Infof("Sending execution ack for cmdId = %d", inst.lb.clientProposal.CommandId)
-				r.ReplyProposeTS(&genericsmrproto.ProposeReplyTS{TRUE, inst.lb.clientProposal.CommandId, val, inst.lb.clientProposal.Timestamp},
+				r.ReplyProposeTS(&genericsmrproto.ProposeReplyTS{TRUE, inst.lb.clientProposal.CommandId, val, inst.lb.clientProposal.Timestamp, FALSE},
 					inst.lb.clientProposal.Reply)
 			}
 			inst.status = EXECUTED

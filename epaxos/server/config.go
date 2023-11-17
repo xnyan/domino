@@ -46,6 +46,9 @@ const (
 
 	// Added mencius optimization
 	Flag_mencius_early_commit_ack = "mencius.early_commit_ack"
+
+	// Added by @skoya76
+	Flag_measure_commit_to_exec_time = "epaxos.measure.cmtexec.time"
 )
 
 func loadConfig(configFile, replicaFile string) {
@@ -125,6 +128,7 @@ func loadConfig(configFile, replicaFile string) {
 			mencius_early_commit_ack = v
 		}
 	}
+	measure_commit_to_exec_time = p.GetBoolWithDefault(Flag_measure_commit_to_exec_time, "false")
 }
 
 func getBool(ct map[string]string, flag string, d bool) bool {

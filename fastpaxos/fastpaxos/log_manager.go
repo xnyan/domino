@@ -2,6 +2,7 @@ package fastpaxos
 
 import (
 	"sync"
+	"time"
 
 	"domino/fastpaxos/rpc"
 )
@@ -171,7 +172,6 @@ func (m *DefaultLogManager) Commit(idx *LogIdx, entry *Entry) error {
 				", error: %v", entry.op.Id, idx, err)
 		}
 		entry.SetCommitted()
-
 		logger.Debugf("Commit() committed opId = (%s) at empty idx = (%s)", entry.op.Id, idx)
 
 		return nil
@@ -191,7 +191,7 @@ func (m *DefaultLogManager) Commit(idx *LogIdx, entry *Entry) error {
 	} else {
 		e.SetCommitted()
 	}
-
+	e.SetStartDuration(time.Now().UnixNano())
 	logger.Debugf("Commit() committed opId = (%s) at non-empty idx = (%s)", entry.op.Id, idx)
 
 	return nil
@@ -213,8 +213,7 @@ func (m *DefaultLogManager) Exec(execCh chan *rpc.Operation) {
 			logger.Fatalf("Exec() error: %v", err)
 		}
 
-		logger.Debugf("Executes idx = %s", m.logNextExecIdx)
-
+		logger.Debugf("duration = %v ns",time.Now().UnixNano()-entry.GetStartDuration()) 
 		execCh <- entry.GetOp() // May block if the channel is full
 
 		if err = m.log.IncIdx(m.logNextExecIdx); err != nil {

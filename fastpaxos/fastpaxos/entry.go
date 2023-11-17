@@ -18,6 +18,7 @@ const (
 type Entry struct {
 	op     *rpc.Operation
 	status int
+	timestamp int64 // added by @skoya76
 }
 
 func (entry *Entry) SetOp(op *rpc.Operation) {
@@ -55,4 +56,12 @@ func (entry *Entry) String() string {
 		entry.op.Type + ", " +
 		entry.op.Key + ", " +
 		entry.op.Val
+}
+
+func (entry *Entry) SetStartDuration(t int64){
+	entry.timestamp = t
+}
+
+func (entry *Entry) GetStartDuration() int64{
+	return entry.timestamp
 }

@@ -76,9 +76,9 @@ type LeaderBookkeeping struct {
 }
 
 func NewReplica(id int, peerAddrList []string, thrifty bool, exec bool, dreply bool,
-	keyList []string, initVal string,
+	keyList []string, initVal string, measure_commit_to_exec_time bool,
 ) *Replica {
-	r := &Replica{genericsmr.NewReplica(id, peerAddrList, thrifty, exec, dreply, keyList, initVal),
+	r := &Replica{genericsmr.NewReplica(id, peerAddrList, thrifty, exec, dreply, keyList, initVal, measure_commit_to_exec_time),
 		make(chan *gpaxosproto.Prepare, CHAN_BUFFER_SIZE),
 		make(chan *gpaxosproto.M_1a, CHAN_BUFFER_SIZE),
 		make(chan *gpaxosproto.M_1b, CHAN_BUFFER_SIZE),
@@ -571,7 +571,7 @@ func (r *Replica) handlePropose(propose *genericsmr.Propose) {
 
 	if !r.isLeader && r.crtBalnum < 0 {
 		log.Println("Received request before leader 1a message")
-		r.ReplyProposeTS(&genericsmrproto.ProposeReplyTS{FALSE, -1, state.NIL, propose.Timestamp}, propose.Reply)
+		r.ReplyProposeTS(&genericsmrproto.ProposeReplyTS{FALSE, -1, state.NIL, propose.Timestamp,FALSE}, propose.Reply)
 		return
 	}
 
@@ -579,7 +579,7 @@ func (r *Replica) handlePropose(propose *genericsmr.Propose) {
 
 	if _, present := r.committed[propose.CommandId]; present {
 		if r.isLeader || ALL_TO_ALL {
-			r.ReplyProposeTS(&genericsmrproto.ProposeReplyTS{TRUE, propose.CommandId, state.NIL, propose.Timestamp}, propose.Reply)
+			r.ReplyProposeTS(&genericsmrproto.ProposeReplyTS{TRUE, propose.CommandId, state.NIL, propose.Timestamp,FALSE}, propose.Reply)
 		}
 		return
 	} else {
@@ -772,7 +772,7 @@ func (r *Replica) tryToLearn() {
 			r.committed[cid] = true
 			crtbal.lb.committed++
 			if prop, present := r.commandReplies[cid]; present {
-				r.ReplyProposeTS(&genericsmrproto.ProposeReplyTS{TRUE, cid, state.NIL, prop.Timestamp}, prop.Reply)
+				r.ReplyProposeTS(&genericsmrproto.ProposeReplyTS{TRUE, cid, state.NIL, prop.Timestamp,FALSE}, prop.Reply)
 				delete(r.commandReplies, cid)
 			}
 		}

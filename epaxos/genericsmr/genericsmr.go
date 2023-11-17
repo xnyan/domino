@@ -54,7 +54,7 @@ type Replica struct {
 	Exec    bool // execute commands?
 	Dreply  bool // reply to client after command has been executed?
 	Beacon  bool // send beacons to detect how fast are the other replicas?
-
+	
 	Durable     bool     // log to a stable store?
 	StableStore *os.File // file support for the persistent log
 
@@ -66,10 +66,12 @@ type Replica struct {
 	Ewma []float64
 
 	OnClientConnect chan bool
+
+	MeasureCommitToExecTime bool
 }
 
 func NewReplica(id int, peerAddrList []string, thrifty bool, exec bool, dreply bool,
-	keyList []string, initVal string,
+	keyList []string, initVal string, measure_commit_to_exec_time bool,
 ) *Replica {
 	r := &Replica{
 		len(peerAddrList),
@@ -94,7 +96,8 @@ func NewReplica(id int, peerAddrList []string, thrifty bool, exec bool, dreply b
 		make(map[uint8]*RPCPair),
 		genericsmrproto.GENERIC_SMR_BEACON_REPLY + 1,
 		make([]float64, len(peerAddrList)),
-		make(chan bool, 10240)}
+		make(chan bool, 10240),
+		measure_commit_to_exec_time}
 
 	var err error
 

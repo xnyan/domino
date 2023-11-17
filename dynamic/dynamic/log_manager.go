@@ -2,6 +2,7 @@ package dynamic
 
 import (
 	"fmt"
+	"time"
 
 	"domino/common"
 )
@@ -124,6 +125,7 @@ func (lm *SimpleLogManager) PaxosAcceptCmd(t *Timestamp, cmd *Command) {
 		Cmd:    cmd,
 		T:      t,
 		Status: ENTRY_STAT_LEADER_ACCEPTED,
+		Duration: 0,
 	}
 
 	if en, ok := log.Get(t.Time); ok {
@@ -146,6 +148,8 @@ func (lm *SimpleLogManager) PaxosCommitCmd(t *Timestamp, cmdId string) {
 			cmdId, t, e.GetCmd().Id, e.GetT(), e.GetStatus())
 	}
 
+	e.SetStartDuration(time.Now().UnixNano())
+
 	e.SetStatus(ENTRY_STAT_COMMITTED)
 }
 
@@ -159,6 +163,7 @@ func (lm *SimpleLogManager) FpFastAcceptCmd(t *Timestamp, cmd *Command) bool {
 		Cmd:    cmd,
 		T:      t,
 		Status: ENTRY_STAT_ACCEPTOR_ACCEPTED,
+		Duration: 0,
 	}
 	log.Put(t.Time, e)
 
@@ -184,6 +189,7 @@ func (lm *SimpleLogManager) FpAcceptCmd(t *Timestamp, cmd *Command) {
 		Cmd:    cmd,
 		T:      t,
 		Status: ENTRY_STAT_LEADER_ACCEPTED,
+		Duration: 0,
 	}
 	log.Put(t.Time, e)
 }
@@ -209,10 +215,12 @@ func (lm *SimpleLogManager) FpCommitCmd(t *Timestamp, cmd *Command, isFast bool)
 				Cmd:    cmd,
 				T:      t,
 				Status: ENTRY_STAT_COMMITTED,
+				Duration: 0,
 			}
 			log.Put(t.Time, e)
 		} else {
 			//if e.GetCmd().Id == cmd.Id
+			e.SetStartDuration(time.Now().UnixNano())
 			e.SetStatus(ENTRY_STAT_COMMITTED)
 		}
 	} else {
@@ -234,6 +242,7 @@ func (lm *SimpleLogManager) FpCommitCmd(t *Timestamp, cmd *Command, isFast bool)
 				cmd.Id, t, e.GetCmd().Id, e.GetT(), e.GetStatus())
 		}
 
+		e.SetStartDuration(time.Now().UnixNano())
 		e.SetStatus(ENTRY_STAT_COMMITTED)
 	}
 }

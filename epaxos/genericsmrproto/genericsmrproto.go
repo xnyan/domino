@@ -26,11 +26,12 @@ type ProposeReply struct {
 	CommandId int32
 }
 
-type ProposeReplyTS struct {
+type ProposeReplyTS struct { // record epaxos slowpath (changed by @skoya76)
 	OK        uint8
 	CommandId int32
 	Value     state.Value
 	Timestamp int64
+	Slowpath uint8
 }
 
 type Read struct {

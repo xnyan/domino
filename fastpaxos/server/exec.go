@@ -15,6 +15,7 @@ func (s *Server) execOpWithRet(op *rpc.Operation, retHandle *common.Future) {
 	if op == nil {
 		logger.Fatalf("Operation applied to kv-store should not be nil")
 	}
+	logger.Infof("write")
 
 	switch op.Type {
 	case fp.OP_WRITE:
