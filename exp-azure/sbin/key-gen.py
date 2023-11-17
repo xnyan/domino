@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import argparse
 import json
@@ -45,5 +45,5 @@ for i in range(args.key):
   while rkey in keyDict:
     rkey = "".join(random.choice(charset) for j in range(args.key_length))
   keyDict[rkey] = True
-  print rkey
+  print(rkey)
 

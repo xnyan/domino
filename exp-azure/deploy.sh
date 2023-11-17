@@ -17,7 +17,7 @@ do
   
   #log "Creating deployment directory at $dc_id $ip:$dir"
   #cmd="sudo mkdir -p $dir; sudo chmod 777 $dir"
-  #cmd="ssh $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
+  #cmd="ssh -n $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
   #log "Executing: $cmd"
   #run_cmd $cmd
 
@@ -28,7 +28,7 @@ do
   
   log "Checking deployment files at $dc_id $ip:$dir"
   cmd="cd $dir; ls -lh"
-  cmd="ssh $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
+  cmd="ssh -n $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
   log "Executing: $cmd"
   run_cmd $cmd
   
@@ -44,7 +44,7 @@ do
   
   #log "Creating deployment directory at $dc_id $ip:$dir"
   #cmd="sudo mkdir -p $dir; sudo chmod 777 $dir"
-  #cmd="ssh $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
+  #cmd="ssh -n $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
   #log "Executing: $cmd"
   #run_cmd $cmd
 
@@ -55,7 +55,7 @@ do
   
   log "Checking deployment files at $dc_id $ip:$dir"
   cmd="cd $dir; ls -lh"
-  cmd="ssh $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
+  cmd="ssh -n $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
   log "Executing: $cmd"
   run_cmd $cmd
   

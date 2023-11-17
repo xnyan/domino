@@ -62,7 +62,7 @@ for dc_id in dc_ip_list:
     continue
   
   for ip in ip_list:
-    shell_cmd = "ssh %s@%s \"%s %s" % (user, ip, clean_cmd, setup_cmd) 
+    shell_cmd = "ssh -n %s@%s \"%s %s" % (user, ip, clean_cmd, setup_cmd) 
     handle = 1
     dst_delay_list = dst_delay_table.keys()
     for dst_dc_id in dst_delay_list:

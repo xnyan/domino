@@ -48,12 +48,11 @@ do
     cmd="ps -ef | grep ${client_app}"
   fi #mode
 
-  cmd="ssh $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
+  cmd="ssh -n $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
   
   log "$mode ${client_app} at $dc_id $ip"
   log "Executing command: $cmd"
-  
-  #run_cmd $cmd
+  run_cmd $cmd
   run_cmd_in_background $cmd
   sleep 0.01
 done

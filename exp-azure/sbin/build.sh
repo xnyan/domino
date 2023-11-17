@@ -13,25 +13,25 @@ cur_dir=`pwd`
 local_dynamic_path="$GOPATH/src/${dynamic_go_app_path}"
 cd $local_dynamic_path
 log "Building Dynamic in $local_dynamic_path"
-go build
+CGO_ENABLED=0 go build
 
 #EPaxos
 local_epaxos_path="$GOPATH/src/${epaxos_go_app_path}"
 cd $local_epaxos_path
 log "Building EPaxos in $local_epaxos_path"
-go build
+CGO_ENABLED=0 go build
 
 #Fast Paxos
 local_fastpaxos_path="$GOPATH/src/${fastpaxos_go_app_path}"
 cd $local_fastpaxos_path
 log "Building FastPaxos in $local_fastpaxos_path"
-go build
+CGO_ENABLED=0 go build
 
 #Client
 local_client_path="$GOPATH/src/${client_go_app_path}"
 cd $local_client_path
 log "Building Client in $local_client_path"
-go build
+CGO_ENABLED=0 go build
 
 cd ${cur_dir}
 mv $local_dynamic_path/${dynamic_go_app} ./${dynamic_app}

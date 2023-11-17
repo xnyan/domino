@@ -26,11 +26,11 @@ do
     log "Copying server log files ${server_log_file} from $dc_id ($ip) to ${local_log_dir}/"
   elif [ "$mode" == "delete" ]; then
     cmd="cd ${remote_server_log_dir}; rm server*.log kv-*.log stable*"
-    cmd="ssh $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
+    cmd="ssh -n $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
     log "Deleting server log files on $dc_id ($ip)"
   elif [ "$mode" == "list" ]; then
     cmd="ls -lh ${server_log_file}"
-    cmd="ssh $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
+    cmd="ssh -n $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
     log "Listing server log files ${server_log_file} on $dc_id ($ip)"
   fi
   log "Executing command: $cmd"
@@ -58,11 +58,11 @@ do
     log "Copying client log files ${client_log_file} from $dc_id ($ip) to ${local_log_dir}/"
   elif [ "$mode" == "delete" ]; then
     cmd="cd ${remote_client_log_dir}; rm client*.log"
-    cmd="ssh $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
+    cmd="ssh -n $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
     log "Deleting client log files on $dc_id ($ip)"
   elif [ "$mode" == "list" ]; then
     cmd="ls -lh ${client_log_file}"
-    cmd="ssh $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
+    cmd="ssh -n $SSH_OPTIONS ${USER_AT}$ip \"$cmd\""
     log "Listing client log files ${client_log_file} on $dc_id ($ip)"
   fi
   log "Executing command: $cmd"

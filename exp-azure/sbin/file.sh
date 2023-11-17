@@ -23,7 +23,7 @@ do
   if [ "$mode" == "clean" ]; then
     op="cd ${remote_exec_path}; rm ${clean_file_list}"
     op="${op}; cd ${remote_server_log_dir}; rm server*.log kv-*.log stable*"
-    cmd="ssh $SSH_OPTIONS ${USER_AT}$ip \"$op\""
+    cmd="ssh -n $SSH_OPTIONS ${USER_AT}$ip \"$op\""
     log "Deleting files on server $id at $dc_id ($ip)"
   elif [ "$mode" == "list" ]; then
     if [ "${remote_exec_path}" == "${remote_server_log_dir}" ]; then
@@ -31,7 +31,7 @@ do
     else
       op="ls -lh ${remote_exec_path} ${remote_server_log_dir}"
     fi
-    cmd="ssh $SSH_OPTIONS ${USER_AT}$ip \"$op\""
+    cmd="ssh -n $SSH_OPTIONS ${USER_AT}$ip \"$op\""
     log "Listing files on server $id at $dc_id ($ip)"
   fi
   log "Executing command: $cmd"
@@ -55,7 +55,7 @@ do
   if [ "$mode" == "clean" ]; then
     op="cd ${remote_exec_path}; rm ${clean_file_list}"
     op="${op}; cd ${remote_client_log_dir}; rm client*.log"
-    cmd="ssh $SSH_OPTIONS ${USER_AT}$ip \"$op\""
+    cmd="ssh -n $SSH_OPTIONS ${USER_AT}$ip \"$op\""
     log "Deleting files on client $id at $dc_id ($ip)"
   elif [ "$mode" == "list" ]; then
     if [ "${remote_exec_path}" == "${remote_client_log_dir}" ]; then
@@ -63,7 +63,7 @@ do
     else
       op="ls -lh ${remote_exec_path} ${remote_client_log_dir}"
     fi
-    cmd="ssh $SSH_OPTIONS ${USER_AT}$ip \"$op\""
+    cmd="ssh -n $SSH_OPTIONS ${USER_AT}$ip \"$op\""
     log "Listing files on client $id at $dc_id ($ip)"
   fi
   log "Executing command: $cmd"

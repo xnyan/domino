@@ -1,7 +1,7 @@
 username="$USER"
 identity=""
 
-is_debug_mode="false"
+is_debug_mode="true"
 
 # Node configuration file (same file name in both remote and local)
 config_file="default.config"

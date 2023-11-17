@@ -50,7 +50,7 @@ for dc_id in dc_ip_list:
     continue
   
   for ip in ip_list:
-    shell_cmd = "ssh %s@%s \"%s" % (user, ip, clean_cmd) 
+    shell_cmd = "ssh -n %s@%s \"%s" % (user, ip, clean_cmd) 
     shell_cmd += "\"" + suffix
     print "Executes: %s" % (shell_cmd)
     os.system(shell_cmd)
